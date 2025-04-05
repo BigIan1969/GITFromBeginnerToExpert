@@ -29,7 +29,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 18: Git Best Practices](/Chapter%2018.md)
 #### [Chapter 19: Git and GUI Tools](/Chapter%2019)
 #### [Chapter 20: Git for Specific Use Cases](/Chapter%2020.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Appendix](/Appendix.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
