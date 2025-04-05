@@ -15,7 +15,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 7: Working with Remote Repositories](/Chapter%207.md)
 ### [Part 3: Advanced Git Techniques](/Part%203.md)
 #### [Chapter 8: Branching Strategies](/Chapter%208.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Chapter 9: Rebasing](/Chapter%209.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
