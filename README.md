@@ -18,7 +18,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 9: Rebasing](/Chapter%209.md)
 #### [Chapter 10: Tagging and Releases](/Chapter%2010.md)
 #### [Chapter 11: Stashing and Patching](/Chapter%2011.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Chapter 12: Submodules and Subtrees](/Chapter%2012.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
