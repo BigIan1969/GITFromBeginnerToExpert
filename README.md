@@ -21,7 +21,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 12: Submodules and Subtrees](/Chapter%2012.md)
 ### [Part 4: Git for Collaboration and Advanced Topics](/Part%204.md)
 #### [Chapter 13: Collaborative Workflows](/Chapter%2013.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Chapter 14: Git Hooks](/Chapter%2014.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
