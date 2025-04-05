@@ -24,7 +24,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 14: Git Hooks](/Chapter%2014.md)
 #### [Chapter 15: Git Internals](/Chapter%2015.md)
 #### [Chapter 16: Troubleshooting Git](/Chapter%2016.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Chapter 17: Git and Continuous Integration/Continuous Deployment (CI/CD)](/Chapter%2017.md)
 #### [Chapter 6:](/Chapter 6.md)
 
 License: [Creative Commons Attribution ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
