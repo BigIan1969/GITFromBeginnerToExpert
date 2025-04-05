@@ -8,6 +8,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 1: Introduction to Version Control](/Chapter%201.md)
 #### [Chapter 2: Installing and Configuring Git](/Chapter%202.md)
 #### [Chapter 3: Your First Git Repository](/Chapter%203.md)
+### [Part 2: Core Git Concepts](/Part%202.md)
 #### [Chapter 4:](/Chapter 4.md)
 #### [Chapter 5:](/Chapter 5.md)
 #### [Chapter 6:](/Chapter 6.md)
