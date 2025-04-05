@@ -11,7 +11,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 ### [Part 2: Core Git Concepts](/Part%202.md)
 #### [Chapter 4: Understanding Commits and History](/Chapter%204.md)
 #### [Chapter 5: Branching and Merging](/Chapter%205.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Chapter 6: Undoing Changes](/Chapter%206.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
