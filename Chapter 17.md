@@ -160,17 +160,17 @@ GitOps is a modern operational framework that leverages Git as a single source o
 -   Infrastructure and application configurations are defined declaratively in code, typically using tools like Kubernetes manifests, Terraform configurations, or other infrastructure-as-code (IaC) tools.
 -   This declarative configuration is stored in a Git repository.
 
-3.  **Git as the Single Source of Truth:**
+2.  **Git as the Single Source of Truth:**
 
 -   Git becomes the single source of truth for the desired state of the system.
 -   Any changes to the infrastructure or applications are made by modifying the configuration in Git.
 
-5.  **Automated Reconciliation:**
+3.  **Automated Reconciliation:**
 
 -   An automated process continuously monitors the Git repository and reconciles the actual state of the system with the desired state defined in Git.
 -   Tools like Flux or Argo CD are used to automate this reconciliation process.
 
-7.  **Version Control and Auditability:**
+4.  **Version Control and Auditability:**
 
 -   Git's version control capabilities provide a complete audit trail of all changes made to the system, including who made the changes and when.
 -   This enhances traceability and facilitates rollbacks.
@@ -182,17 +182,17 @@ GitOps is a modern operational framework that leverages Git as a single source o
 -   Infrastructure and application configurations are stored in a Git repository.
 -   Developers or operators make changes to the configuration by creating pull requests (or merge requests) and following standard Git workflows.
 
-3.  **CI/CD Pipeline (Optional):**
+2.  **CI/CD Pipeline (Optional):**
 
 -   A CI/CD pipeline might be used to build and test application code.
 -   The pipeline might also update the application configuration in the Git repository (e.g., updating image tags).
 
-5.  **GitOps Agent:**
+3.  **GitOps Agent:**
 
 -   A GitOps agent (e.g., Flux, Argo CD) runs within the target environment (e.g., Kubernetes cluster).
 -   The agent continuously monitors the Git repository for changes.
 
-7.  **Reconciliation:**
+4.  **Reconciliation:**
 
 -   When the agent detects changes in the Git repository, it automatically reconciles the actual state of the system with the desired state defined in Git.
 -   This involves applying the changes to the infrastructure or deploying the new application version.
