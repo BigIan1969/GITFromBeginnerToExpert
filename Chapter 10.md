@@ -144,8 +144,8 @@ Git provides two types of tags: annotated and lightweight. While both serve the 
 
 **Key Differences Summarized:**
 
-| Feature | **Annotated Tags** | **Lightweight Tags** |
-| ===== | ===== | ===== |
+| **Feature** | **Annotated Tags** | **Lightweight Tags** |
+| --- |--- | --- |
 | **Information** | Stores author, date, message | Simple commit pointer  |
 | **Git Database** | Stored as a full object | Just a reference | 
 | **Use Cases** | Releases, public tags, detailed records | Temporary tags, internal use, quick markers |
@@ -172,69 +172,69 @@ Tags are essential for marking releases and specific points in your project's hi
 **Listing Tags:**
 
 -   **Listing all tags:**
-
+```
 git tag
-
+```
 This command displays all tags in alphabetical order.
 
 -   **Listing tags with a specific pattern:**
-
+```
 git tag -l "v1.*"
-
+```
 This command lists all tags that match the specified pattern (e.g., all tags starting with "v1.").
 
 **Viewing Tag Details:**
 
 -   **Viewing tag details:**
-
+```
 git show <tag-name>
-
+```
 This command displays the details of the specified tag, including the commit it points to, the tag message (for annotated tags), and the author and date.
 
 **Creating Tags on Past Commits:**
 
 -   **Creating a tag on a specific commit:**
-
+```
 git tag -a <tag-name> <commit-hash> -m "<tag-message>"
-
+```
 This command creates an annotated tag on the specified commit. Replace <commit-hash> with the SHA-1 hash of the commit.
 
 **Deleting Tags:**
 
 -   **Deleting a local tag:**
-
+```
 git tag -d <tag-name>
-
+```
 This command deletes the specified local tag.
 
 -   **Deleting a remote tag:**
-
+```
 git push origin :refs/tags/<tag-name>
-
+```
 This command deletes the specified tag from the remote repository.
 
 **Pushing Tags to Remote Repositories:**
 
 -   **Pushing a single tag:**
-
+```
 git push origin <tag-name>
-
+```
 -   **Pushing all tags:**
-
+```
 git push origin --tags
-
+```
 **Checking Out Tags:**
 
 -   **Checking out a tag (detached HEAD state):**
-
+```
 git checkout <tag-name>
-
+```
 This command checks out the specified tag, putting your working directory into a detached HEAD state. In this state, you're not on a branch, and any commits you make will not be associated with a branch.
 
 -   **Creating a branch from a tag:**
-
+```
 git checkout -b <branch-name> <tag-name>
-
+```
 This command creates a new branch from the specified tag, allowing you to make changes and commit them on the new branch.
 
 **Tagging Strategies:**
@@ -249,27 +249,27 @@ This command creates a new branch from the specified tag, allowing you to make c
 
 1.  You release version 1.0 of your project.
 2.  You create an annotated tag:
-
+```
 git tag -a v1.0 -m "Release v1.0"
-
+```
 1.  You push the tag to the remote repository:
-
+```
 git push origin v1.0
-
+```
 1.  You discover a bug in version 1.0.
 2.  You create a hotfix branch from the v1.0 tag:
-
+```
 git checkout -b hotfix-v1.0 v1.0
-
+```
 1.  You fix the bug and commit the changes.
 2.  You create a new release tag:
-
+```
 git tag -a v1.0.1 -m "Hotfix release v1.0.1"
-
+```
 1.  You push the new tag:
-
+```
 git push origin v1.0.1
-
+```
 By understanding how to manage tags, you can effectively track releases, navigate your project's history, and maintain a clear and organized codebase.
 
 ### Using Tags for Releases
@@ -325,13 +325,13 @@ Tags are invaluable for managing software releases in Git. They provide stable a
 3.  **Prepare Release:** Create a release branch (e.g., release/1.0) from the main branch.
 4.  **Perform Release Tasks:** Perform release-related tasks, such as bug fixes, documentation updates, and testing.
 5.  **Create Release Tag:** Create an annotated tag on the release commit:
-
+```
 git tag -a v1.0 -m "Release v1.0: Added new features, fixed bugs, and improved performance."
-
+```
 1.  **Push Tag:** Push the tag to the remote repository:
-
+```
 git push origin v1.0
-
+```
 1.  **Deploy Release:** Deploy the release to production.
 2.  **Merge into Develop:** Merge the release branch into the develop branch.
 3.  **Delete Release Branch:** Delete the release branch.
