@@ -4,11 +4,12 @@ Learn Git from beginner to expert! This guide covers version control basics, ins
 # Contents
 
 ## [Introduction](/Intro.md)
-### [Chapter 1: Introduction to Version Control](/Chapter%201.md)
-### [Chapter 2: Installing and Configuring Git](/Chapter%202.md)
-### [Chapter 3:](/Chapter 3.md)
-### [Chapter 4:](/Chapter 4.md)
-### [Chapter 5:](/Chapter 5.md)
-### [Chapter 6:](/Chapter 6.md)
+### [Part 1: Getting Started with Git](/Part%201.md)
+#### [Chapter 1: Introduction to Version Control](/Chapter%201.md)
+#### [Chapter 2: Installing and Configuring Git](/Chapter%202.md)
+#### [Chapter 3:](/Chapter 3.md)
+#### [Chapter 4:](/Chapter 4.md)
+#### [Chapter 5:](/Chapter 5.md)
+#### [Chapter 6:](/Chapter 6.md)
 
 License: [Creative Commons Attribution ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
