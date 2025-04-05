@@ -23,7 +23,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 13: Collaborative Workflows](/Chapter%2013.md)
 #### [Chapter 14: Git Hooks](/Chapter%2014.md)
 #### [Chapter 15: Git Internals](/Chapter%2015.md)
-#### [Chapter 6:](/Chapter 6.md)
+#### [Chapter 16: Troubleshooting Git](/Chapter%2016.md)
 #### [Chapter 6:](/Chapter 6.md)
 #### [Chapter 6:](/Chapter 6.md)
 
