@@ -27,7 +27,7 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 #### [Chapter 17: Git and Continuous Integration/Continuous Deployment (CI/CD)](/Chapter%2017.md)
 ### [Part 5: Git Beyond the Basics](/Part%205.md)
 #### [Chapter 18: Git Best Practices](/Chapter%2018.md)
-#### [Chapter 19: Git and GUI Tools](/Chapter%2019)
+#### [Chapter 19: Git and GUI Tools](/Chapter%2019.md)
 #### [Chapter 20: Git for Specific Use Cases](/Chapter%2020.md)
 #### [Appendix](/Appendix.md)
 #### [Glossary](/Glossary.md)
