@@ -8,5 +8,5 @@ We'll begin by exploring the fundamental concept of version control, understandi
 #### [Chapter 3: Your First Git Repository](/Chapter%203.md)
 
 
-| [Previous](/intro.md) | [Contents](/README.md) | [Next](/Chapter%201.md) |
+| [Previous](/Intro.md) | [Contents](/README.md) | [Next](/Chapter%201.md) |
 | :---: | :---: | :---: |
