@@ -253,3 +253,6 @@ git checkout -b my-recovered-branch 9h0i1j2
 -   **Backup Regularly:** Regular backups are still the best way to protect your work, even with Git's recovery capabilities.
 
 By mastering the reflog, you can significantly increase your ability to recover from accidental Git operations and prevent data loss.
+
+| [Previous](/Chapter%2015.md) | [Contents](/README.md) | [Next](/Chapter%2017.md) |
+| :---: | :---: | :---: |
