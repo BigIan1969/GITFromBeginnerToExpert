@@ -279,3 +279,6 @@ ssh-keygen -t ed25519 -C "your.email@example.com"
 It is important to store your private SSH key securely. Never share your private key with anyone.
 
 By setting up SSH keys, you'll enjoy a more secure and efficient Git workflow, especially when working with remote repositories.
+
+| [Previous](/Chapter%201.md) | [Contents](/README.md) | [Next](/Chapter%203.md) |
+| :---: | :---: | :---: |
