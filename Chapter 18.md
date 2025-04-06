@@ -362,3 +362,7 @@ Git's distributed nature facilitates collaboration, but effective teamwork requi
 -   The develop branch is eventually merged into the main branch for release.
 
 By implementing these practices, teams can create a collaborative and efficient Git workflow that fosters productivity, innovation, and high-quality software.
+
+| [Previous](/Part%205.md) | [Contents](/README.md) | [Next](/Chapter%2019.md) |
+| :---: | :---: | :---: |
+
