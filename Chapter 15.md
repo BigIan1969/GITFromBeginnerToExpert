@@ -249,3 +249,5 @@ Understanding the index is crucial because:
 
 By mastering the index, you can use Git more effectively and create cleaner, more focused commits.
 
+| [Previous](/Chapter%2014.md) | [Contents](/README.md) | [Next](/Chapter%2016.md) |
+| :---: | :---: | :---: |
