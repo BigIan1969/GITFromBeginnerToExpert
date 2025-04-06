@@ -83,3 +83,5 @@ This glossary defines key terms used in Git.
 
 This glossary should provide a helpful reference for understanding Git terminology.
 
+| [Previous](/Appendix.md) | [Contents](/README.md) | [Next](/AdditionalResources.md) |
+| :---: | :---: | :---: |
