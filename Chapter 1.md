@@ -174,3 +174,6 @@ Git's widespread adoption is a testament to its powerful features and numerous b
 -   Git is open-source software, meaning it's free to use and modify. This has led to a large and active community that provides support and contributes to its ongoing development.
 
 In summary, Git provides a powerful and versatile toolset for managing your projects, offering numerous benefits that enhance collaboration, improve code management, and increase productivity. Its reliability and flexibility make it an indispensable tool for developers and teams across various industries.
+
+| [Previous](/Part%201.md) | [Contents](/README.md) | [Next](/Chapter%202.md) |
+| :---: | :---: | :---: |
