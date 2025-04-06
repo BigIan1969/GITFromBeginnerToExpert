@@ -83,5 +83,5 @@ This appendix provides a curated list of resources to further expand your Git kn
 
 -   <https://pre-commit.com/>
 
-| [Previous](/AdditionalResources.md) | [Contents](/README.md) | 
+| [Previous](/Glossary.md) | [Contents](/README.md) | 
 | :---: | :---: |
