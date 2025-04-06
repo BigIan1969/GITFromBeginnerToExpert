@@ -177,3 +177,6 @@ Code reviews are a critical component of modern software development workflows, 
 6.  **Merge:** Once approved, the pull request is merged into the main branch.
 
 Code reviews are a valuable investment in code quality and team collaboration. By following these best practices, you can create a positive and productive code review process.
+
+| [Previous](/Part%204.md) | [Contents](/README.md) | [Next](/Chapter%2014.md) |
+| :---: | :---: | :---: |
