@@ -331,3 +331,6 @@ exit 0
 -   **Avoid blocking operations:** If possible make hooks non blocking, so that they do not slow down the development process.
 
 By automating tasks with Git hooks, you can improve efficiency, enforce consistency, and streamline your development workflow.
+
+| [Previous](/Chapter%2013.md) | [Contents](/README.md) | [Next](/Chapter%2015.md) |
+| :---: | :---: | :---: |
