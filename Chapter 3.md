@@ -398,5 +398,5 @@ Then you can create a ~/.gitignore_global file with your global ignore patterns.
 
 By using .gitignore files effectively, you can keep your Git repository clean and organized, ensuring that only relevant files are tracked.
 
-| [Previous](/Chapter%202.md) | [Contents](/README.md) | [Next](/Chapter%204.md) |
+| [Previous](/Chapter%202.md) | [Contents](/README.md) | [Next](/Part%202.md) |
 | :---: | :---: | :---: |
