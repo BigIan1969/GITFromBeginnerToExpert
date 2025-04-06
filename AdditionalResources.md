@@ -82,3 +82,6 @@ This appendix provides a curated list of resources to further expand your Git kn
 -   **Pre-commit:** A framework for managing pre-commit hooks.
 
 -   <https://pre-commit.com/>
+
+| [Previous](/AdditionalResources.md) | [Contents](/README.md) | 
+| :---: | :---: |
