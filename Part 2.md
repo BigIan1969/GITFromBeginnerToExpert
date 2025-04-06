@@ -9,3 +9,6 @@ We'll begin by dissecting the anatomy of a commit, understanding how Git stores 
 #### [Chapter 5: Branching and Merging](/Chapter%205.md)
 #### [Chapter 6: Undoing Changes](/Chapter%206.md)
 #### [Chapter 7: Working with Remote Repositories](/Chapter%207.md)
+
+| [Previous](/Chapter%203.md) | [Contents](/README.md) | [Next](/Chapter%204.md) |
+| :---: | :---: | :---: |
