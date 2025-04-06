@@ -328,3 +328,6 @@ git apply patches/*.patch
 -   **Testing:** Test the changes after applying the patches to ensure they work as expected.
 
 By understanding how to create and apply patches, you can effectively share and apply changes in Git, even in environments where Git repositories are not directly accessible.
+
+| [Previous](/Chapter%2010.md) | [Contents](/README.md) | [Next](/Chapter%2012.md) |
+| :---: | :---: | :---: |
