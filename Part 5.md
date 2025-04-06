@@ -8,3 +8,6 @@ We'll begin by codifying Git best practices, covering everything from writing cl
 #### [Chapter 18: Git Best Practices](/Chapter%2018.md)
 #### [Chapter 19: Git and GUI Tools](/Chapter%2019)
 #### [Chapter 20: Git for Specific Use Cases](/Chapter%2020.md)
+
+| [Previous](/Chapter%2017.md) | [Contents](/README.md) | [Next](/Chapter%2018.md) |
+| :---: | :---: | :---: |
