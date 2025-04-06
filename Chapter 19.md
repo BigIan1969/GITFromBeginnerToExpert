@@ -193,3 +193,6 @@ Both GUI tools and the command line have their strengths and weaknesses when it 
 -   Avoid relying solely on GUI tools, as this can limit your understanding of Git and your ability to perform advanced operations.
 
 By understanding the strengths and weaknesses of both GUI tools and the command line, you can develop a Git workflow that is both efficient and effective.
+
+| [Previous](/Chapter%2018.md) | [Contents](/README.md) | [Next](/Chapter%2020.md) |
+| :---: | :---: | :---: |
