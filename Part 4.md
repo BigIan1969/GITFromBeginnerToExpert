@@ -10,3 +10,6 @@ We will begin by examining various collaborative workflows, providing you with s
 #### [Chapter 15: Git Internals](/Chapter%2015.md)
 #### [Chapter 16: Troubleshooting Git](/Chapter%2016.md)
 #### [Chapter 17: Git and Continuous Integration/Continuous Deployment (CI/CD)](/Chapter%2017.md)
+
+| [Previous](/Chapter%2012.md) | [Contents](/README.md) | [Next](/Chapter%2013.md) |
+| :---: | :---: | :---: |
