@@ -232,3 +232,6 @@ This appendix provides a concise reference for commonly used Git commands.
 -   Always refer to the official Git documentation for the most up-to-date and detailed information.
 
 Use the git help <command> command to get help on a specific command (e.g., git help commit).
+
+| [Previous](/Chapter%2020.md) | [Contents](/README.md) | [Next](/Glossary.md) |
+| :---: | :---: | :---: |
