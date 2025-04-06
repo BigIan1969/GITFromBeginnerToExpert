@@ -268,3 +268,6 @@ Commit hashes are fundamental to Git's architecture. They are unique identifiers
 4.  You then use `git checkout <commit-hash>^` to revert to the parent of that commit to test if the bug is now gone.
 
 By understanding commit hashes, you can effectively navigate and manipulate your Git repository, ensuring data integrity and maintaining a clear and organized history of your project.
+
+| [Previous](/Chapter%203.md) | [Contents](/README.md) | [Next](/Chapter%205.md) |
+| :---: | :---: | :---: |
