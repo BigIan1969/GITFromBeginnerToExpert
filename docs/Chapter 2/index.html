@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 2 - Installing and Configuring Git - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 2 - Installing and Configuring Git";
+        var mkdocs_page_input_path = "Chapter 2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Chapter 2 - Installing and Configuring Git</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installing-git-on-different-operating-systems-linux-macos-windows">Installing Git on Different Operating Systems (Linux, macOS, Windows)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-git-configuration-username-email">Basic Git Configuration (username, email)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-gits-configuration-files-gitconfig">Understanding Git's Configuration Files (.gitconfig)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-ssh-keys-for-secure-connections-optional-but-recommended-early">Setting up SSH Keys for Secure Connections (Optional, but recommended early)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%204/">Chapter 4 - Understanding Commits and History</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%206/">Chapter 6 - Undoing Changes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%209/">Chapter 9 - Rebasing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2012/">Chapter 12 - Submodules and Subtrees</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2014/">Chapter 14 - Git Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Appendix/">Appendix</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Chapter 2 - Installing and Configuring Git</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="chapter-2-installing-and-configuring-git">Chapter 2: Installing and Configuring Git</h2>
+<p>Now that we've explored the fundamental concepts of version control and introduced Git, it's time to get our hands dirty and set up Git on your own machine. This chapter will guide you through the installation process, ensuring you have a working Git environment ready for your projects. We'll cover installation on the three major operating systems: Linux, macOS, and Windows, providing step-by-step instructions tailored to each platform.</p>
+<p>Beyond installation, we'll also delve into the essential configurations that will personalize your Git experience and ensure smooth operation. Setting up your username and email, understanding Git's configuration files, and optionally, configuring SSH keys for secure remote connections are all crucial steps. By the end of this chapter, you'll have a fully functional Git installation, configured to your preferences, laying the groundwork for the practical exercises and advanced techniques we'll explore in the subsequent chapters.</p>
+<h3 id="installing-git-on-different-operating-systems-linux-macos-windows">Installing Git on Different Operating Systems (Linux, macOS, Windows)</h3>
+<p>Git is available for all major operating systems, and the installation process is generally straightforward. Here's a guide to installing Git on Linux, macOS, and Windows:</p>
+<p><strong>1. Installing Git on Linux</strong></p>
+<p>Linux distributions typically offer Git through their package managers, making installation quick and easy. The specific commands may vary slightly depending on your distribution.</p>
+<ul>
+<li><strong>Debian/Ubuntu:</strong></li>
+</ul>
+<pre><code>sudo apt update
+
+sudo apt install git
+</code></pre>
+<ul>
+<li><strong>Fedora/CentOS/RHEL:</strong></li>
+</ul>
+<pre><code>sudo dnf install git
+</code></pre>
+<ul>
+<li><strong>Arch Linux/Manjaro:</strong></li>
+</ul>
+<pre><code>sudo pacman -S git
+</code></pre>
+<ul>
+<li><strong>OpenSUSE:</strong></li>
+</ul>
+<pre><code>sudo zypper install git
+</code></pre>
+<p>After installation, you can verify it by running:</p>
+<pre><code>git --version
+</code></pre>
+<p><strong>2. Installing Git on macOS</strong></p>
+<p>There are several ways to install Git on macOS:</p>
+<ul>
+<li>
+<p><strong>Xcode Command Line Tools:</strong></p>
+</li>
+<li>
+<p>If you have Xcode installed, you can install Git by opening Terminal and typing:</p>
+</li>
+</ul>
+<pre><code>git --version
+</code></pre>
+<ul>
+<li>
+<p>If Git is not already installed, macOS will prompt you to install the Xcode Command Line Tools, which include Git. Follow the prompts to complete the installation.</p>
+</li>
+<li>
+<p><strong>Homebrew:</strong></p>
+</li>
+<li>
+<p>Homebrew is a popular package manager for macOS. If you have Homebrew installed, you can install Git with:</p>
+</li>
+</ul>
+<pre><code>brew install git
+</code></pre>
+<ul>
+<li>
+<p><strong>Git Installer:</strong></p>
+</li>
+<li>
+<p>You can download the Git installer from the official Git website (git-scm.com). This provides a graphical installer that simplifies the process.</p>
+</li>
+</ul>
+<p>After installation, you can verify it by running:</p>
+<pre><code>git --version
+</code></pre>
+<p><strong>3. Installing Git on Windows</strong></p>
+<p>The recommended way to install Git on Windows is through the official Git for Windows installer.</p>
+<ul>
+<li>
+<p><strong>Git for Windows Installer:</strong></p>
+</li>
+<li>
+<p>Download the installer from the official Git website (git-scm.com).</p>
+</li>
+<li>Run the installer, and follow the prompts. The installer provides various options, but the default settings are usually sufficient for most users.</li>
+<li>During installation, you will be prompted to choose a default editor, and adjust your PATH environment. It is recommended to choose the option "Git from the command line and also from 3rd-party software".</li>
+<li>You will also be prompted to choose how git handles line endings. The default option is recommended for windows users.</li>
+<li>You can also choose your terminal emulator. Git bash is recommended.</li>
+</ul>
+<p>After installation, you can verify it by opening Git Bash (which is installed with Git for Windows) and running:</p>
+<pre><code>git --version
+</code></pre>
+<p><strong>Verification:</strong></p>
+<p>Regardless of your operating system, after installation, it's always a good practice to verify that Git is installed correctly. Open your terminal or command prompt and run <code>git --version</code>. This command will display the installed Git version if the installation was successful.</p>
+<p>By following these instructions, you'll have Git successfully installed on your preferred operating system, ready for the next steps in your Git journey.</p>
+<h3 id="basic-git-configuration-username-email">Basic Git Configuration (username, email)</h3>
+<p>After installing Git, the next step is to configure your username and email address. These settings are crucial because Git uses them to associate your commits with your identity. Every commit you make will include this information, providing a clear record of who made each change.</p>
+<p><strong>Setting Your Username</strong></p>
+<p>Your username is used to identify you in the commit history. It doesn't have to be your real name; you can use a nickname or any other identifier you prefer.</p>
+<p>To set your username, open your terminal or Git Bash (on Windows) and run the following command, replacing "Your Name" with your desired username:</p>
+<pre><code>git config --global user.name &quot;Your Name&quot;
+</code></pre>
+<p>The --global option tells Git to apply this setting to all repositories on your system. If you want to set a different username for a specific repository, navigate to that repository's directory and run the command without the --global option.</p>
+<p><strong>Setting Your Email Address</strong></p>
+<p>Your email address is also included in your commits and is used for communication and identification purposes. It's important to use a valid email address.</p>
+<p>To set your email address, run the following command, replacing "your.email@example.com" with your email address:</p>
+<pre><code>git config --global user.email &quot;your.email@example.com&quot;
+</code></pre>
+<p>Again, the --global option applies this setting to all repositories. You can set a different email address for a specific repository by omitting the --global option.</p>
+<p><strong>Verifying Your Configuration</strong></p>
+<p>To verify that your username and email address have been set correctly, you can use the following commands:</p>
+<pre><code>git config --global user.name
+</code></pre>
+<pre><code>git config --global user.email
+</code></pre>
+<p>These commands will display the configured values.</p>
+<p><strong>Why These Configurations Are Important</strong></p>
+<ul>
+<li><strong>Commit Attribution:</strong> Every commit includes your username and email, providing a clear audit trail of who made each change.</li>
+<li><strong>Collaboration:</strong> When working in a team, these settings help identify contributors and facilitate communication.</li>
+<li><strong>Code Hosting Platforms:</strong> Platforms like GitHub, GitLab, and Bitbucket use these settings to associate commits with your account.</li>
+</ul>
+<p>By setting your username and email address, you ensure that your commits are properly attributed and that you're easily identifiable in your project's history. This is a fundamental step in setting up Git for effective version control.</p>
+<h3 id="understanding-gits-configuration-files-gitconfig">Understanding Git's Configuration Files (.gitconfig)</h3>
+<p>Git's behaviour is controlled by configuration files, which store settings that affect how Git operates. Understanding these files is crucial for customizing Git to your preferences and troubleshooting potential issues. The primary configuration file you'll encounter is .gitconfig.</p>
+<p><strong>Types of Configuration Files</strong></p>
+<p>Git uses three main levels of configuration, each with its own file:</p>
+<ol>
+<li>
+<p><strong>System-Level Configuration:</strong></p>
+</li>
+<li>
+<p>This applies to all users on the system.</p>
+</li>
+<li>The file is located in the system's Git installation directory (e.g., /etc/gitconfig on Linux).</li>
+<li>Changes here affect every Git user on the machine.</li>
+<li>
+<p>You'll generally need administrator privileges to modify this file.</p>
+</li>
+<li>
+<p><strong>Global-Level Configuration:</strong></p>
+</li>
+<li>
+<p>This applies to the current user across all repositories.</p>
+</li>
+<li>The file is typically located in your user's home directory (e.g., ~/.gitconfig on Linux/macOS, C:\Users\YourUsername.gitconfig on Windows).</li>
+<li>
+<p>This is the most common level of configuration for personal settings like username and email.</p>
+</li>
+<li>
+<p><strong>Local-Level Configuration:</strong></p>
+</li>
+<li>
+<p>This applies only to the current Git repository.</p>
+</li>
+<li>The file is located in the .git/config directory within the repository.</li>
+<li>Changes here override global and system-level settings for the specific repository.</li>
+</ol>
+<p><strong>The .gitconfig File Structure</strong></p>
+<p>The .gitconfig file uses a simple INI-like format, with sections and key-value pairs. Here's a basic example:</p>
+<pre><code>[user]
+
+    name = Your Name
+
+    email = your.email@example.com
+
+[core]
+
+    editor = nano
+
+    autocrlf = input
+
+[alias]
+
+    co = checkout
+
+    br = branch
+
+    ci = commit
+
+    st = status
+</code></pre>
+<ul>
+<li><strong>Sections:</strong> Sections are enclosed in square brackets (e.g., [user], [core], [alias]).</li>
+<li><strong>Key-Value Pairs:</strong> Within each section, settings are defined as key-value pairs (e.g., name = Your Name).</li>
+</ul>
+<p><strong>Common Configuration Settings</strong></p>
+<ul>
+<li><strong>user.name and user.email:</strong> As discussed, these settings identify you in commits.</li>
+<li><strong>core.editor:</strong> Specifies the default text editor for Git (e.g., nano, vim, code).</li>
+<li><strong>core.autocrlf:</strong> Controls how Git handles line endings across different operating systems.</li>
+<li><strong>alias:</strong> Allows you to create shortcuts for Git commands (e.g., co for checkout).</li>
+</ul>
+<p><strong>Viewing and Editing the Configuration</strong></p>
+<ul>
+<li><strong>Viewing:</strong> You can view the configuration using the git config command:</li>
+</ul>
+<pre><code>git config --list
+</code></pre>
+<p>To view a specific setting:</p>
+<pre><code>git config user.name
+</code></pre>
+<ul>
+<li><strong>Editing:</strong> You can edit the configuration directly using a text editor or using the git config command:</li>
+</ul>
+<pre><code>git config --global core.editor &quot;code&quot;
+</code></pre>
+<p>This command sets the global core.editor setting to "code".</p>
+<p><strong>Importance of Understanding Configuration</strong></p>
+<p>Understanding Git's configuration files allows you to:</p>
+<ul>
+<li>Customize Git to your preferences.</li>
+<li>Troubleshoot issues by inspecting and modifying settings.</li>
+<li>Create aliases for frequently used commands.</li>
+<li>Ensure consistent behaviour across different environments.</li>
+</ul>
+<p>By familiarizing yourself with the .gitconfig file, you gain greater control over Git and enhance your workflow.</p>
+<h3 id="setting-up-ssh-keys-for-secure-connections-optional-but-recommended-early">Setting up SSH Keys for Secure Connections (Optional, but recommended early)</h3>
+<p>While you can use HTTPS to interact with remote Git repositories, SSH keys offer a more secure and convenient way to authenticate. SSH keys eliminate the need to repeatedly enter your username and password, making your workflow smoother and more efficient. Although optional, setting up SSH keys early is highly recommended for a seamless Git experience.</p>
+<p><strong>What are SSH Keys?</strong></p>
+<p>SSH (Secure Shell) keys are a pair of cryptographic keys: a public key and a private key. The public key is shared with remote servers (like GitHub, GitLab, or Bitbucket), while the private key is kept securely on your local machine. When you connect to a remote server, SSH uses these keys to authenticate you.</p>
+<p><strong>Benefits of Using SSH Keys:</strong></p>
+<ul>
+<li><strong>Security:</strong> SSH keys are more secure than password-based authentication.</li>
+<li><strong>Convenience:</strong> You don't need to enter your password every time you interact with a remote repository.</li>
+<li><strong>Automation:</strong> SSH keys are essential for automating tasks and integrating Git with CI/CD pipelines.</li>
+</ul>
+<p><strong>Generating SSH Keys:</strong></p>
+<ol>
+<li><strong>Open your terminal or Git Bash.</strong></li>
+<li><strong>Generate a new SSH key pair using the ssh-keygen command:</strong></li>
+</ol>
+<pre><code>ssh-keygen -t ed25519 -C &quot;your.email@example.com&quot;
+</code></pre>
+<ul>
+<li>-t ed25519 specifies the key type (ed25519 is recommended for its security).</li>
+<li>
+<p>-C "your.email@example.com" adds a comment to the key, typically your email address.</p>
+</li>
+<li>
+<p><strong>When prompted, choose a location to save the keys.</strong> The default location is usually sufficient.</p>
+</li>
+<li><strong>You'll be prompted to enter a passphrase.</strong> This is an optional but highly recommended security measure. The passphrase protects your private key.</li>
+<li>
+<p><strong>The command will generate two files:</strong></p>
+</li>
+<li>
+<p>id_ed25519 (or the file name you chose): Your private key.</p>
+</li>
+<li>id_ed25519.pub (or the file name you chose with .pub extension): Your public key.</li>
+</ul>
+<p><strong>Adding the SSH Key to Your Git Hosting Provider:</strong></p>
+<ol>
+<li>
+<p><strong>Copy the contents of your public key file (id_ed25519.pub).</strong> You can use the following command to copy the contents to your clipboard (adjust the command based on your OS):</p>
+</li>
+<li>
+<p><strong>macOS:</strong> <code>pbcopy &lt; ~/.ssh/id_ed25519.pub</code></p>
+</li>
+<li><strong>Linux (with xclip):</strong> <code>xclip -sel clip &lt; ~/.ssh/id_ed25519.pub</code></li>
+<li><strong>Windows (with Git Bash):</strong> <code>clip &lt; ~/.ssh/id_ed25519.pub</code></li>
+<li>
+<p>Or you can simply open the file in a text editor and copy the contents.</p>
+</li>
+<li>
+<p><strong>Go to your Git hosting provider's website (GitHub, GitLab, Bitbucket, etc.).</strong></p>
+</li>
+<li><strong>Navigate to your account settings and find the SSH key settings.</strong></li>
+<li><strong>Add a new SSH key and paste the contents of your public key.</strong></li>
+<li><strong>Save the changes.</strong></li>
+</ol>
+<p><strong>Testing the SSH Connection:</strong></p>
+<ol>
+<li><strong>Open your terminal or Git Bash.</strong></li>
+<li>
+<p><strong>Test the connection using the ssh -T command:</strong></p>
+</li>
+<li>
+<p><strong>GitHub:</strong> <code>ssh -T git@github.com</code></p>
+</li>
+<li><strong>GitLab:</strong>  <code>ssh -T git@gitlab.com</code></li>
+<li>
+<p><strong>Bitbucket:</strong> <code>ssh -T git@bitbucket.org</code></p>
+</li>
+<li>
+<p><strong>If the connection is successful, you'll see a message indicating that you've authenticated.</strong></p>
+</li>
+</ol>
+<p><strong>Storing your SSH keys:</strong></p>
+<p>It is important to store your private SSH key securely. Never share your private key with anyone.</p>
+<p>By setting up SSH keys, you'll enjoy a more secure and efficient Git workflow, especially when working with remote repositories.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Chapter%201/" class="btn btn-neutral float-left" title="Chapter 1 -  Introduction to Version Control"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Chapter%203/" class="btn btn-neutral float-right" title="Chapter 3 - Your First Git Repository">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Chapter%201/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Chapter%203/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
