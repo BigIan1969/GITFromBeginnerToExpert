@@ -1,0 +1,41 @@
+site_name: GIT From Beginner To Expert
+nav:
+    - Contents: "README.md"
+    - Introduction: "Intro.md"
+    - Part 1 Getting Started with Git: "Part 1.md"
+    - Chapter 1 -  Introduction to Version Control: Chapter 1.md
+    - Chapter 2 - Installing and Configuring Git: Chapter 2.md
+    - Chapter 3 - Your First Git Repository: Chapter 3.md
+    - Part 2 - Core Git Concepts: Part 2.md
+    - Chapter 4 - Understanding Commits and History: Chapter 4.md
+    - Chapter 5 - Branching and Merging: Chapter 5.md
+    - Chapter 6 - Undoing Changes: Chapter 6.md
+    - Chapter 7 - Working with Remote Repositories: Chapter 7.md
+    - Part 3 - Advanced Git Techniques: Part 3.md
+    - Chapter 8 - Branching Strategies: Chapter 8.md
+    - Chapter 9 - Rebasing: Chapter 9.md
+    - Chapter 10 - Tagging and Releases: Chapter 10.md
+    - Chapter 11 - Stashing and Patching: Chapter 11.md
+    - Chapter 12 - Submodules and Subtrees: Chapter 12.md
+    - Part 4 - Git for Collaboration and Advanced Topics: Part 4.md
+    - Chapter 13 - Collaborative Workflows: Chapter 13.md
+    - Chapter 14 - Git Hooks: Chapter 14.md
+    - Chapter 15 - Git Internals: Chapter 15.md
+    - Chapter 16 - Troubleshooting Git: Chapter 16.md
+    - Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD): Chapter 17.md
+    - Part 5 - Git for Collaboration and Advanced Topics: Part 5.md
+    - Chapter 18 - Git Best Practices: Chapter 18.md
+    - Chapter 19 - Git and GUI Tools: Chapter 19.md
+    - Chapter 20 - Git for Specific Use Cases: Chapter 20.md
+    - Appendix: Appendix.md
+    - Glossary: Glossary.md  
+    - Additional Resources: AdditionalResources.md
+theme: readthedocs
+plugins:
+    - search
+    - glightbox
+    - mermaid2:
+        language: 'mermaid'
+markdown_extensions:
+    - tables
+

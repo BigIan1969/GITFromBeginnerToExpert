@@ -1,0 +1,21 @@
+site_name: Advanced Widget Theory
+nav:
+    - Contents: README.md
+    - Introduction: Intro.md
+    - Part 1: 
+    - Chapter 1: Foundations: chapter1.md
+    - Chapter 2: Core Principles: chapter2.md
+    - Mathematical Appendix: appendix_math.md
+theme: material
+plugins:
+    - search
+    - glightbox
+    - mermaid2:
+        language: 'mermaid'
+    - print-site-pages
+markdown_extensions:
+    - tables
+    - mdx_math
+    - pymdownx.highlight:
+        guess_lang: false
+    - pymdownx.superfences

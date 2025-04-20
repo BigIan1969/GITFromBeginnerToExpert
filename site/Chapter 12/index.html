@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 12 - Submodules and Subtrees - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 12 - Submodules and Subtrees";
+        var mkdocs_page_input_path = "Chapter 12.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%202/">Chapter 2 - Installing and Configuring Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%204/">Chapter 4 - Understanding Commits and History</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%206/">Chapter 6 - Undoing Changes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%209/">Chapter 9 - Rebasing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Chapter 12 - Submodules and Subtrees</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-submodules">Understanding Submodules</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#adding-and-managing-submodules">Adding and Managing Submodules</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-subtrees">Understanding Subtrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#when-to-use-which">When to use which.</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2014/">Chapter 14 - Git Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Appendix/">Appendix</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Chapter 12 - Submodules and Subtrees</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="chapter-12-submodules-and-subtrees">Chapter 12: Submodules and Subtrees</h2>
+<p>In complex projects, it's common to depend on external libraries, manage related projects, or organize code into reusable components. Git provides two powerful mechanisms for handling these situations: submodules and subtrees. This chapter will explore these advanced techniques, enabling you to effectively manage dependencies and incorporate external projects into your Git repositories.</p>
+<p>We'll begin by understanding the concept of submodules, which allows you to include a Git repository as a subdirectory within another Git repository. From there, we'll delve into the process of adding, initializing, and managing submodules. We'll then examine Git subtrees, an alternative approach that integrates external projects into your repository's history. Finally, we'll discuss the key differences between submodules and subtrees, helping you choose the most appropriate method for your project's needs. By the end of this chapter, you'll have a solid grasp of how to use submodules and subtrees to manage dependencies and organize your code effectively.</p>
+<h3 id="understanding-submodules">Understanding Submodules</h3>
+<p>Git submodules allow you to include a Git repository as a subdirectory within another Git repository. This is useful for managing dependencies, incorporating external libraries, or organizing projects into reusable components. Submodules essentially create a link to a specific commit in another repository, allowing you to track that external project within your main project.  </p>
+<p><strong>How Submodules Work:</strong></p>
+<ul>
+<li><strong>Repository within a Repository:</strong> A submodule is essentially a Git repository embedded within another Git repository.</li>
+<li><strong>Link to a Specific Commit:</strong> The main repository stores a reference to a specific commit in the submodule repository. This means that the submodule is "pinned" to a particular version.</li>
+<li><strong>.gitmodules File:</strong> Git uses a .gitmodules file to store the configuration of submodules, including the URL of the submodule repository and the path where it's included in the main repository.</li>
+<li><strong>Separate History:</strong> The submodule repository has its own separate Git history, independent of the main repository.</li>
+<li><strong>Working Directory:</strong> When you clone a repository with submodules, the submodule directories will be present, but they won't be populated until you initialize and update them.</li>
+</ul>
+<p><strong>Use Cases for Submodules:</strong></p>
+<ul>
+<li><strong>Managing Dependencies:</strong> Include external libraries or frameworks as submodules.</li>
+<li><strong>Reusing Code:</strong> Organize code into reusable components and include them as submodules in multiple projects.</li>
+<li><strong>Project Organization:</strong> Structure large projects into smaller, manageable sub-projects.</li>
+<li><strong>Working with Related Projects:</strong> Include related projects as submodules, allowing you to work on them together.</li>
+</ul>
+<p><strong>Key Concepts:</strong></p>
+<ul>
+<li><strong>Initialization:</strong> After cloning a repository with submodules, you need to initialize them using git submodule init. This sets up the configuration for the submodules.</li>
+<li><strong>Updating:</strong> You need to update the submodules using git submodule update to fetch the specified commits and populate the submodule directories.</li>
+<li><strong>Superproject:</strong> The main repository that includes the submodules is called the "superproject."</li>
+<li><strong>Submodule Commit:</strong> The superproject stores the specific commit hash of the submodule that it's using.</li>
+</ul>
+<p><strong>Benefits of Submodules:</strong></p>
+<ul>
+<li><strong>Dependency Management:</strong> Submodules provide a way to manage dependencies and ensure that you're using specific versions of external code.</li>
+<li><strong>Code Organization:</strong> They allow you to organize code into reusable components and include them in multiple projects.</li>
+<li><strong>Version Control:</strong> Submodules provide version control for external projects, allowing you to track changes and revert to previous versions.</li>
+</ul>
+<p><strong>Drawbacks of Submodules:</strong></p>
+<ul>
+<li><strong>Complexity:</strong> Submodules can add complexity to your Git workflow, especially when dealing with updates and branching.</li>
+<li><strong>Additional Steps:</strong> You need to perform additional steps to initialize and update submodules after cloning.</li>
+<li><strong>Potential for Errors:</strong> It's easier to make mistakes with submodules than with regular git usage.</li>
+</ul>
+<p><strong>In summary:</strong></p>
+<p>Submodules are a powerful tool for managing dependencies and incorporating external projects into your Git repositories. However, they can add complexity, so it's essential to understand how they work and use them carefully.</p>
+<h3 id="adding-and-managing-submodules">Adding and Managing Submodules</h3>
+<p>Submodules provide a way to include Git repositories as subdirectories within another Git repository. This section covers the essential commands and procedures for adding and managing submodules in your projects.</p>
+<p><strong>1. Adding a Submodule:</strong></p>
+<ul>
+<li>Use the git submodule add command to add a submodule to your repository.</li>
+<li>You need to provide the URL of the submodule repository and the path where you want to include it:</li>
+</ul>
+<p>git submodule add <submodule-repository-url> <path></p>
+<ul>
+<li><submodule-repository-url>: The URL of the repository you want to include as a submodule.</li>
+<li><path>: The directory within your repository where you want to add the submodule.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>git submodule add https://github.com/example/my-library.git lib/my-library
+</code></pre>
+<p>This command adds the repository https://github.com/example/my-library.git as a submodule to the lib/my-library directory in your repository.</p>
+<ul>
+<li>
+<p>After running this command, Git will:</p>
+</li>
+<li>
+<p>Add an entry to the .gitmodules file, which stores the submodule configuration.</p>
+</li>
+<li>Add a record of the submodule to the index.</li>
+</ul>
+<p><strong>2. Initializing Submodules:</strong></p>
+<ul>
+<li>After cloning a repository that contains submodules, you need to initialize them.</li>
+<li>This step registers the submodules listed in the .gitmodules file.</li>
+</ul>
+<pre><code>git submodule init
+</code></pre>
+<p>This command should be run in the root directory of your repository.</p>
+<p><strong>3. Updating Submodules:</strong></p>
+<ul>
+<li>After initializing submodules, you need to update them to fetch the specified commits and populate the submodule directories.</li>
+</ul>
+<pre><code>git submodule update
+</code></pre>
+<p>This command:</p>
+<ul>
+<li>Fetches the specified commit for each submodule.</li>
+<li>
+<p>Checks out the submodule at the specified commit.</p>
+</li>
+<li>
+<p>You can also initialize and update submodules in one step:</p>
+</li>
+</ul>
+<pre><code>git submodule update --init --recursive
+</code></pre>
+<p>The --init option initializes uninitialized submodules, and the --recursive option updates any nested submodules.</p>
+<p><strong>4. Working with Submodules:</strong></p>
+<ul>
+<li>Once a submodule is initialized and updated, you can navigate into the submodule directory and work within it as if it were a separate Git repository.</li>
+<li>You can make changes, commit them, and push them to the submodule's remote repository.</li>
+<li><strong>Important:</strong> Changes made within the submodule are independent of the main repository until you update the submodule reference in the main repository.</li>
+</ul>
+<p><strong>5. Updating the Submodule Reference:</strong></p>
+<ul>
+<li>When you make changes to a submodule and want to include those changes in the main repository, you need to update the submodule reference.</li>
+<li>After committing changes within the submodule, go back to the main repository's root directory.</li>
+<li>The main repository will show that the submodule has been modified.</li>
+<li>Stage and commit these changes in the main repository. This will update the submodule's commit hash recorded in the main repository.</li>
+</ul>
+<pre><code>git add &lt;submodule-path&gt; # Stage the submodule changes
+git commit -m &quot;Update submodule &lt;submodule-path&gt;&quot; # Commit the changes
+</code></pre>
+<p>This will record the new commit hash of the submodule in the main repository.</p>
+<p><strong>6. Cloning a Repository with Submodules:</strong></p>
+<ul>
+<li>When cloning a repository that contains submodules, you can use the --recurse-submodules option to automatically initialize and update the submodules.</li>
+</ul>
+<pre><code>git clone --recurse-submodules &lt;repository-url&gt;
+</code></pre>
+<p><strong>7. Removing a Submodule:</strong></p>
+<p>Removing submodules is more involved than adding them. Here's a common process:</p>
+<ol>
+<li><strong>Deinitialize the submodule:</strong></li>
+</ol>
+<pre><code>git submodule deinit &lt;submodule-path&gt;
+</code></pre>
+<ol>
+<li><strong>Remove the submodule directory:</strong></li>
+</ol>
+<pre><code>rm -rf &lt;submodule-path&gt;
+</code></pre>
+<ol>
+<li><strong>Remove the submodule configuration:</strong></li>
+</ol>
+<pre><code>git config --remove-section submodule.&lt;submodule-path&gt;
+</code></pre>
+<ol>
+<li><strong>Remove the submodule entry from .gitmodules:</strong> Manually edit the .gitmodules file and remove the relevant section.</li>
+<li><strong>Stage and commit the changes:</strong></li>
+</ol>
+<pre><code>git add .gitmodules &lt;submodule-path&gt;
+</code></pre>
+<p>git commit -m "Remove submodule <submodule-path>"</p>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Submodule Commit Hashes:</strong> The main repository stores the specific commit hash of the submodule, not a branch. This ensures that you're using a specific version of the submodule.</li>
+<li><strong>Submodule Updates:</strong> Remember to update the submodule reference in the main repository after making changes to the submodule.</li>
+<li><strong>Nested Submodules:</strong> Submodules can have their own submodules, creating nested submodules.</li>
+<li><strong>Collaboration:</strong> When collaborating with others, ensure that everyone is aware of the submodules and how to manage them.</li>
+<li><strong>Alternatives:</strong> Consider using package managers for dependency management in some cases, as they might be simpler and more appropriate.</li>
+</ul>
+<p>By understanding how to add and manage submodules, you can effectively incorporate external projects into your Git repositories and organize your code into reusable components.</p>
+<h3 id="understanding-subtrees">Understanding Subtrees</h3>
+<p>Git subtrees provide an alternative approach to managing external projects within a Git repository, offering a different set of trade-offs compared to submodules. Subtrees allow you to insert another repository as a subdirectory of your main repository while maintaining the external project's history within your main repository's history.</p>
+<p><strong>How Subtrees Work:</strong></p>
+<ul>
+<li><strong>Merging External History:</strong> Subtrees merge the history of the external repository into the history of the main repository. This means that all commits from the external repository become part of the main repository's history.</li>
+<li><strong>Subdirectory Integration:</strong> The external repository's contents are placed into a subdirectory of the main repository.</li>
+<li><strong>No Separate .git Directory:</strong> Unlike submodules, subtrees do not create a separate .git directory within the subdirectory. The external project's history is fully integrated into the main repository.</li>
+<li><strong>git subtree Command:</strong> Git provides the git subtree command to manage subtrees, simplifying the process of adding, pulling, and pushing changes.</li>
+</ul>
+<p><strong>Use Cases for Subtrees:</strong></p>
+<ul>
+<li><strong>Vendor Libraries:</strong> Incorporate vendor libraries or external code that you want to track within your main repository's history.</li>
+<li><strong>Monorepos:</strong> Manage multiple related projects within a single repository, keeping their histories separate but accessible.</li>
+<li><strong>Simplified Dependency Management:</strong> Integrate external projects without the complexity of submodules.</li>
+<li><strong>Modifying External Code:</strong> Modify external code directly within your main repository and push changes back to the original repository.</li>
+</ul>
+<p><strong>Key Concepts:</strong></p>
+<ul>
+<li><strong>Prefix:</strong> The subdirectory where the external repository is inserted is called the "prefix."</li>
+<li><strong>Merging History:</strong> The history of the external repository is merged into the main repository's history, preserving the commit history.</li>
+<li><strong>git subtree add:</strong> Used to add an external repository as a subtree.</li>
+<li><strong>git subtree pull:</strong> Used to pull changes from the external repository into the subtree.</li>
+<li><strong>git subtree push:</strong> Used to push changes from the subtree back to the external repository.</li>
+</ul>
+<p><strong>Benefits of Subtrees:</strong></p>
+<ul>
+<li><strong>Simplified History:</strong> Subtrees integrate the external repository's history into the main repository, making it easier to track changes.</li>
+<li><strong>No Separate .git Directory:</strong> Subtrees avoid the complexity of separate .git directories, simplifying the repository structure.</li>
+<li><strong>Direct Modification:</strong> You can modify the external code directly within your main repository and push changes back to the original repository.</li>
+<li><strong>Easier for Beginners:</strong> Subtrees can be easier to understand and use than submodules, especially for beginners.</li>
+</ul>
+<p><strong>Drawbacks of Subtrees:</strong></p>
+<ul>
+<li><strong>History Clutter:</strong> Merging external history can clutter the main repository's history, making it more difficult to navigate.</li>
+<li><strong>Potential for Conflicts:</strong> Integrating external history can lead to more frequent and complex merge conflicts.</li>
+<li><strong>Increased Repository Size:</strong> Subtrees can increase the size of the main repository, especially for large external projects.</li>
+<li><strong>Less Isolation:</strong> Changes in the subtree are more tightly coupled with the main repository.</li>
+</ul>
+<p><strong>In summary:</strong></p>
+<p>Subtrees offer a way to integrate external projects into your Git repository while maintaining their history. They provide a simpler alternative to submodules in some cases, but they can also introduce history clutter and potential conflicts. Choosing between submodules and subtrees depends on your project's specific needs and preferences.</p>
+<h3 id="when-to-use-which">When to use which.</h3>
+<p>Choosing between Git submodules and subtrees depends on your project's specific needs, team preferences, and the desired level of integration between your main repository and external projects. Both techniques have their strengths and weaknesses, and understanding these can help you make an informed decision.</p>
+<p><strong>Submodules:</strong></p>
+<ul>
+<li>
+<p><strong>Use When:</strong></p>
+</li>
+<li>
+<p>You need to manage external dependencies that have their own independent development lifecycle.</p>
+</li>
+<li>You want to keep the external project's history separate from your main repository's history.</li>
+<li>You need to pin a specific version of an external project.</li>
+<li>You want to maintain a clear separation of concerns between your main project and external components.</li>
+<li>
+<p>You have a need to update the external repository independently of the main repository.</p>
+</li>
+<li>
+<p><strong>Pros:</strong></p>
+</li>
+<li>
+<p>Clear separation of external project's history.</p>
+</li>
+<li>Allows for independent development of external projects.</li>
+<li>
+<p>Provides precise version control of external dependencies.</p>
+</li>
+<li>
+<p><strong>Cons:</strong></p>
+</li>
+<li>
+<p>Can add complexity to the Git workflow, especially for beginners.</p>
+</li>
+<li>Requires additional steps to initialize and update submodules.</li>
+<li>Can be challenging to manage nested submodules.</li>
+</ul>
+<p><strong>Subtrees:</strong></p>
+<ul>
+<li>
+<p><strong>Use When:</strong></p>
+</li>
+<li>
+<p>You want to integrate an external project's history into your main repository's history.</p>
+</li>
+<li>You need to modify the external project's code directly within your main repository.</li>
+<li>You want a simpler workflow than submodules, especially for small projects.</li>
+<li>You're building a monorepo and need to manage related projects within a single repository.</li>
+<li>
+<p>You want to have all of the code within a single repository, and avoid having to manage multiple repositories.</p>
+</li>
+<li>
+<p><strong>Pros:</strong></p>
+</li>
+<li>
+<p>Simplified history management.</p>
+</li>
+<li>No separate .git directories.</li>
+<li>Allows for direct modification of external code.</li>
+<li>
+<p>Can be easier for beginners to understand.</p>
+</li>
+<li>
+<p><strong>Cons:</strong></p>
+</li>
+<li>
+<p>Can clutter the main repository's history.</p>
+</li>
+<li>Potential for more frequent and complex merge conflicts.</li>
+<li>Can increase the size of the main repository.</li>
+<li>Less isolation between the main repository, and the subtree.</li>
+</ul>
+<p><strong>Key Considerations:</strong></p>
+<ul>
+<li>
+<p><strong>History Integration:</strong></p>
+</li>
+<li>
+<p>If you want to integrate the external project's history into your main repository, use subtrees.</p>
+</li>
+<li>
+<p>If you want to keep the histories separate, use submodules.</p>
+</li>
+<li>
+<p><strong>Modification Needs:</strong></p>
+</li>
+<li>
+<p>If you need to modify the external code directly within your main repository and push changes back to the original repository, use subtrees.</p>
+</li>
+<li>
+<p>If you want to treat the external project as a black box, use submodules.</p>
+</li>
+<li>
+<p><strong>Workflow Complexity:</strong></p>
+</li>
+<li>
+<p>If you want a simpler workflow, especially for small projects, use subtrees.</p>
+</li>
+<li>
+<p>If you need precise version control and independent development, use submodules.</p>
+</li>
+<li>
+<p><strong>Repository Size:</strong></p>
+</li>
+<li>
+<p>If repository size is a concern, submodules will keep the main repository smaller.</p>
+</li>
+<li>
+<p><strong>Team Familiarity:</strong></p>
+</li>
+<li>
+<p>Consider your team's familiarity with submodules and subtrees.</p>
+</li>
+<li>Choose the technique that your team is most comfortable with.</li>
+</ul>
+<p><strong>In summary:</strong></p>
+<ul>
+<li>Submodules are better for managing external dependencies with independent development cycles and precise version control.</li>
+<li>Subtrees are better for integrating external projects into your main repository's history and modifying external code directly.</li>
+</ul>
+<p>By carefully considering these factors, you can choose the most appropriate technique for your project's needs.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Chapter%2011/" class="btn btn-neutral float-left" title="Chapter 11 - Stashing and Patching"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Part%204/" class="btn btn-neutral float-right" title="Part 4 - Git for Collaboration and Advanced Topics">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Chapter%2011/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Part%204/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

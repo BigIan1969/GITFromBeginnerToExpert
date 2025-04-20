@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 9 - Rebasing - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 9 - Rebasing";
+        var mkdocs_page_input_path = "Chapter 9.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%202/">Chapter 2 - Installing and Configuring Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%204/">Chapter 4 - Understanding Commits and History</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%206/">Chapter 6 - Undoing Changes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Chapter 9 - Rebasing</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-rebasing-git-rebase">Understanding Rebasing (git rebase)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#interactive-rebasing-git-rebase-i">Interactive Rebasing (git rebase -i)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#when-to-rebase-vs-merge">When to Rebase vs. Merge</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recovering-from-bad-rebases">Recovering from bad rebases.</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2012/">Chapter 12 - Submodules and Subtrees</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2014/">Chapter 14 - Git Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Appendix/">Appendix</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Chapter 9 - Rebasing</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="chapter-9-rebasing">Chapter 9: Rebasing</h2>
+<p>While merging is the most common way to integrate changes from one branch into another, Git offers another powerful technique called rebasing. Rebasing allows you to rewrite the commit history of a branch, creating a cleaner and more linear history. This chapter will delve into the intricacies of rebasing, exploring its benefits, use cases, and potential pitfalls.</p>
+<p>We'll begin by understanding the fundamental concept of rebasing and how it differs from merging. From there, we'll examine the various options and techniques for rebasing, including interactive rebasing, which allows you to precisely control the commit history. We'll also discuss the potential dangers of rebasing, particularly when working with shared repositories, and provide guidelines for safe and effective rebasing practices. By the end of this chapter, you'll have a solid understanding of rebasing and its applications, enabling you to refine your project's history and maintain a clean and organized codebase.</p>
+<h3 id="understanding-rebasing-git-rebase">Understanding Rebasing (git rebase)</h3>
+<p>Rebasing is a Git command that allows you to change the base commit of a branch. Unlike merging, which creates a new merge commit to integrate changes, rebasing rewrites the commit history by replaying the commits of one branch onto another. This results in a linear commit history, which can be cleaner and easier to follow.</p>
+<p><strong>How Rebasing Works:</strong></p>
+<ol>
+<li><strong>Finds Common Ancestor:</strong> Git finds the common ancestor of the two branches involved in the rebase.</li>
+<li><strong>Temporarily Shelves Commits:</strong> Git temporarily shelves the commits from the branch being rebased.</li>
+<li><strong>Applies Commits onto New Base:</strong> Git applies the shelved commits onto the target branch, one by one, creating new commits with the same changes.</li>
+<li><strong>Moves Branch Pointer:</strong> Git moves the branch pointer to the last applied commit, effectively rewriting the branch's history.</li>
+</ol>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Rebasing the current branch onto another branch:</strong></li>
+</ul>
+<pre><code>git rebase &lt;base-branch&gt;
+</code></pre>
+<p>Replace <base-branch> with the name of the branch you want to rebase onto.</p>
+<ul>
+<li><strong>Rebasing a branch onto another branch (specifying both branches):</strong></li>
+</ul>
+<pre><code>git rebase --onto &lt;target-branch&gt; &lt;old-base-branch&gt; &lt;branch-to-rebase&gt;
+</code></pre>
+<p>This more complex form is useful when you want to rebase a branch that didn't branch directly from the target branch.</p>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You create a feature branch feature/user-profile from the main branch.</li>
+<li>While you're working on the feature branch, the main branch advances with new commits.</li>
+<li>You want to integrate the changes from main into your feature branch without creating a merge commit and with a clean history.</li>
+<li>You switch to the feature/user-profile branch and run git rebase main.</li>
+<li>Git rewrites the history of the feature/user-profile branch, placing your commits on top of the latest commits from main.</li>
+</ol>
+<p><strong>Benefits of Rebasing:</strong></p>
+<ul>
+<li><strong>Clean Linear History:</strong> Rebasing creates a linear commit history, making it easier to follow the changes and understand the project's evolution.</li>
+<li><strong>Simplified Branch Management:</strong> Rebasing can simplify branch management by eliminating merge commits.</li>
+<li><strong>Easier to Read Logs:</strong> A linear history makes it easier to read the commit logs and understand the changes.</li>
+</ul>
+<p><strong>Drawbacks and Considerations:</strong></p>
+<ul>
+<li><strong>Rewrites History:</strong> Rebasing rewrites the commit history, which can cause issues for other developers who have based their work on the original commits.</li>
+<li><strong>Conflicts:</strong> Rebasing can lead to more frequent and complex merge conflicts compared to merging.</li>
+<li><strong>Do Not Rebase Public Commits:</strong> Avoid rebasing commits that have already been pushed to a shared repository. This can cause significant problems for other developers.</li>
+<li><strong>Interactive Rebasing:</strong> Git provides an interactive rebasing mode <code>git rebase -i</code> that allows you to precisely control the commit history, including reordering, editing, and squashing commits.</li>
+</ul>
+<p><strong>Key Differences from Merging:</strong></p>
+<ul>
+<li><strong>Merge:</strong> Creates a new merge commit, preserving the history of both branches.</li>
+<li><strong>Rebase:</strong> Rewrites the commit history, creating a linear history.</li>
+</ul>
+<p><strong>When to Use Rebasing:</strong></p>
+<ul>
+<li>When you want to maintain a clean and linear commit history.</li>
+<li>When you're working on a feature branch that you haven't shared with others.</li>
+<li>When you want to integrate changes from another branch without creating a merge commit.</li>
+</ul>
+<p>By understanding how rebasing works and its benefits and drawbacks, you can effectively use it to manage your project's history and maintain a clean and organized codebase. However, it's crucial to use rebasing with caution, especially in shared repositories.</p>
+<h3 id="interactive-rebasing-git-rebase-i">Interactive Rebasing (git rebase -i)</h3>
+<p>Interactive rebasing <code>git rebase -i</code> is a powerful Git command that allows you to manipulate your commit history in a more granular way. It provides a text-based interface to reorder, edit, squash, and drop commits, giving you fine-grained control over your branch's history.</p>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li><strong>Opens an Editor:</strong> <code>git rebase -i</code> opens your default text editor with a list of commits that are about to be rebased.</li>
+<li><strong>Interactive Commands:</strong> You can use various commands to modify the commits, such as pick, reword, edit, squash, fixup, and drop.</li>
+<li><strong>Rewrites History:</strong> Based on the commands you specify, Git rewrites the commit history.</li>
+</ul>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Interactive rebasing onto the main branch:</strong>
+<code>git rebase -i main</code></li>
+<li><strong>Interactive rebasing onto the parent of the last three commits:</strong></li>
+</ul>
+<pre><code>git rebase -i HEAD~3
+</code></pre>
+<p><strong>Interactive Commands:</strong></p>
+<ul>
+<li><strong>pick (or p):</strong> Use the commit as is.</li>
+<li><strong>reword (or r):</strong> Edit the commit message.</li>
+<li><strong>edit (or e):</strong> Stop and allow you to modify the commit.</li>
+<li><strong>squash (or s):</strong> Combine the commit with the previous commit.</li>
+<li><strong>fixup (or f):</strong> Combine the commit with the previous commit, discarding the commit message.</li>
+<li><strong>drop (or d):</strong> Remove the commit.</li>
+</ul>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You have a feature branch with several commits, some of which have typos in the commit messages, and some of which should be combined.</li>
+<li>You run <code>git rebase -i</code> main to start an interactive rebase.</li>
+<li>Git opens your editor with a list of commits.</li>
+<li>You change the commands to reword the commit messages, squash the relevant commits, and leave the others as pick.</li>
+<li>You save the file and close the editor.</li>
+<li>Git performs the rebase based on your commands.</li>
+</ol>
+<p><strong>Workflow Example:</strong></p>
+<ol>
+<li><strong>Start Interactive Rebase:</strong> <code>git rebase -i HEAD~4</code> (To edit the last 4 commits)</li>
+<li><strong>Editor Opens:</strong></li>
+<li>pick 1234567 First commit</li>
+<li>pick 890abcd Second commit</li>
+<li>pick ef01234 Third commit (typo here)</li>
+<li>pick 56789ab Fourth commit (fixup for third)</li>
+<li><strong>Modify Commands:</strong></li>
+<li>pick 1234567 First commit</li>
+<li>reword 890abcd Second commit</li>
+<li>edit ef01234 Third commit (typo here)</li>
+<li>fixup 56789ab Fourth commit (fixup for third)</li>
+<li><strong>Save and Close Editor:</strong> Git starts rebasing.</li>
+<li><strong>Reword Commit:</strong> Git opens the editor for the second commit message; you edit it, save, and close.</li>
+<li>
+<p><strong>Edit Commit:</strong> Git stops at the third commit, allowing you to modify it.</p>
+</li>
+<li>
+<p><code>git commit --amend</code> to fix the commit content or message.</p>
+</li>
+<li>
+<p><code>git rebase --continue</code> to proceed.</p>
+</li>
+<li>
+<p><strong>Fixup Commit:</strong> Git automatically combines the fourth commit with the third, discarding its message.</p>
+</li>
+<li><strong>Rebase Complete:</strong> Git finishes the rebase.</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Rewrites History:</strong> Interactive rebasing rewrites the commit history, which can cause issues for other developers.</li>
+<li><strong>Do Not Rebase Public Commits:</strong> Avoid rebasing commits that have already been pushed to a shared repository.</li>
+<li><strong>Conflicts:</strong> Interactive rebasing can lead to merge conflicts, which you'll need to resolve manually.</li>
+<li><strong>Careful Use:</strong> Use interactive rebasing with caution, especially when working on branches that have been shared with others.</li>
+<li><strong>Backup:</strong> Make sure to backup important changes before running interactive rebasing.</li>
+</ul>
+<p>By understanding how to use git rebase -i, you can effectively manipulate your commit history, creating a cleaner and more organized codebase.</p>
+<h3 id="when-to-rebase-vs-merge">When to Rebase vs. Merge</h3>
+<p>Choosing between rebasing and merging depends on your project's needs, team preferences, and the desired commit history. Both techniques achieve the same goal of integrating changes from one branch into another, but they do so in different ways, resulting in different commit histories.</p>
+<p><strong>Rebasing (git rebase)</strong></p>
+<ul>
+<li>
+<p><strong>Use When:</strong></p>
+</li>
+<li>
+<p>You want to maintain a clean, linear commit history.</p>
+</li>
+<li>You're working on a feature branch that hasn't been shared with others.</li>
+<li>You want to integrate changes from another branch without creating a merge commit.</li>
+<li>You want to rewrite your local history to make it more readable or logical.</li>
+<li>
+<p>You are preparing a feature branch for a pull request.</p>
+</li>
+<li>
+<p><strong>Benefits:</strong></p>
+</li>
+<li>
+<p>Creates a linear commit history, making it easier to follow the changes.</p>
+</li>
+<li>Simplifies branch management by eliminating merge commits.</li>
+<li>
+<p>Results in cleaner and easier-to-read commit logs.</p>
+</li>
+<li>
+<p><strong>Drawbacks:</strong></p>
+</li>
+<li>
+<p>Rewrites commit history, which can cause issues for shared branches.</p>
+</li>
+<li>Can lead to more frequent and complex merge conflicts.</li>
+<li>Should not be used on public commits.</li>
+</ul>
+<p><strong>Merging (git merge)</strong></p>
+<ul>
+<li>
+<p><strong>Use When:</strong></p>
+</li>
+<li>
+<p>You want to preserve the complete history of both branches.</p>
+</li>
+<li>You're working on a shared branch where others have based their work.</li>
+<li>You want to avoid rewriting history, especially in shared repositories.</li>
+<li>
+<p>You need to merge changes from a long lived branch into main.</p>
+</li>
+<li>
+<p><strong>Benefits:</strong></p>
+</li>
+<li>
+<p>Preserves the history of both branches, showing that a merge occurred.</p>
+</li>
+<li>Safe for shared repositories, as it doesn't rewrite history.</li>
+<li>
+<p>Less prone to complex merge conflicts.</p>
+</li>
+<li>
+<p><strong>Drawbacks:</strong></p>
+</li>
+<li>
+<p>Creates merge commits, which can clutter the commit history.</p>
+</li>
+<li>Can result in a non-linear history, making it harder to follow the changes.</li>
+<li>Makes for a more complex git log.</li>
+</ul>
+<p><strong>Guidelines:</strong></p>
+<ul>
+<li>
+<p><strong>Local Branches:</strong></p>
+</li>
+<li>
+<p>Feel free to rebase your local feature branches before merging them into main or develop.</p>
+</li>
+<li>
+<p>Use interactive rebasing to clean up your commit history before creating a pull request.</p>
+</li>
+<li>
+<p><strong>Shared Branches:</strong></p>
+</li>
+<li>
+<p>Avoid rebasing shared branches, such as main or develop.</p>
+</li>
+<li>
+<p>Use merging to integrate changes into shared branches, preserving the history.</p>
+</li>
+<li>
+<p><strong>Team Conventions:</strong></p>
+</li>
+<li>
+<p>Establish clear team conventions regarding rebasing and merging.</p>
+</li>
+<li>Ensure that everyone understands the benefits and drawbacks of each technique.</li>
+<li>
+<p>Communicate clearly when rebasing has occurred, and never force push a rebased shared branch.</p>
+</li>
+<li>
+<p><strong>Consider the Audience:</strong></p>
+</li>
+<li>
+<p>Think about who will be reading the commit history.</p>
+</li>
+<li>If a clean, linear history is important, use rebasing.</li>
+<li>If preserving the complete history is crucial, use merging.</li>
+</ul>
+<p><strong>In summary:</strong></p>
+<ul>
+<li>Rebase for cleaner, linear history on local branches.</li>
+<li>Merge for preserving history and safety on shared branches.</li>
+</ul>
+<p>By following these guidelines, you can effectively choose between rebasing and merging, ensuring a clean and organized commit history while maintaining a collaborative and efficient workflow.</p>
+<h3 id="recovering-from-bad-rebases">Recovering from bad rebases.</h3>
+<p>Rebasing, while powerful, can sometimes lead to unintended consequences, such as lost commits or a corrupted commit history. Fortunately, Git provides several mechanisms to recover from bad rebases and restore your repository to a previous state.</p>
+<p><strong>Common Rebasing Mistakes:</strong></p>
+<ul>
+<li><strong>Accidental Commit Dropping:</strong> Dropping the wrong commits during interactive rebasing.</li>
+<li><strong>Incorrect Commit Squashing:</strong> Squashing commits incorrectly, leading to data loss.</li>
+<li><strong>Merge Conflicts Gone Wrong:</strong> Resolving merge conflicts incorrectly during rebasing.</li>
+<li><strong>Force Pushing Rebased Shared Branches:</strong> Force pushing rebased branches that have already been shared with others, causing significant issues.</li>
+</ul>
+<p><strong>Recovery Techniques:</strong></p>
+<ol>
+<li>
+<p><strong>Using git reflog:</strong></p>
+</li>
+<li>
+<p>git reflog is your best friend when recovering from bad rebases. It displays a log of all changes to the HEAD pointer, including branch movements and resets.</p>
+</li>
+<li>You can use git reflog to identify the commit hash of the state you want to revert to.</li>
+<li>Once you have the commit hash, you can use git reset --hard <commit-hash> to restore your repository to that state.</li>
+<li>Example:</li>
+</ol>
+<pre><code>git reflog
+git reset --hard &lt;commit-hash&gt;
+</code></pre>
+<ol>
+<li>
+<p><strong>Using Original Branch (If Available):</strong></p>
+</li>
+<li>
+<p>If you haven't deleted the original branch that you rebased, you can simply switch back to it.</p>
+</li>
+<li>This is the easiest way to recover if you realize the rebase was a mistake before deleting the branch.</li>
+<li>Example:</li>
+</ol>
+<pre><code>git checkout &lt;original-branch&gt;
+</code></pre>
+<ol>
+<li>
+<p><strong>Using git cherry-pick:</strong></p>
+</li>
+<li>
+<p>If you've lost specific commits during rebasing, you can use git cherry-pick to reapply them.</p>
+</li>
+<li>Use git reflog to find the commit hashes of the lost commits.</li>
+<li>Then, use git cherry-pick <commit-hash> to reapply each commit.</li>
+<li>Example:</li>
+</ol>
+<pre><code>git reflog
+git cherry-pick &lt;commit-hash1&gt;
+git cherry-pick &lt;commit-hash2&gt;
+</code></pre>
+<ol>
+<li>
+<p><strong>Using Backup Branches:</strong></p>
+</li>
+<li>
+<p>If you are about to do a risky rebase, create a backup branch before you do it.</p>
+</li>
+<li>Example:</li>
+</ol>
+<pre><code>git checkout &lt;branch-to-rebase&gt;
+git branch backup-&lt;branch-to-rebase&gt;
+git rebase -i &lt;base-branch&gt;
+</code></pre>
+<ul>
+<li>If the rebase goes wrong, simply checkout the backup branch.</li>
+</ul>
+<p><strong>Best Practices to Avoid Bad Rebases:</strong></p>
+<ul>
+<li><strong>Backup Before Rebasing:</strong> Always create a backup branch or commit before performing a rebase, especially an interactive rebase.</li>
+<li><strong>Avoid Rebasing Public Commits:</strong> Never rebase commits that have already been pushed to a shared repository.</li>
+<li><strong>Test Rebases Locally:</strong> Test your rebases locally before pushing them to a remote repository.</li>
+<li><strong>Review Interactive Rebase Scripts:</strong> Carefully review the interactive rebase script before executing it.</li>
+<li><strong>Communicate with Team:</strong> If you accidentally force push a rebased shared branch, immediately communicate with your team to minimize the impact.</li>
+<li><strong>Use Visual Git Tools:</strong> Visual Git tools can help visualize the commit history and make it easier to recover from bad rebases.</li>
+</ul>
+<p>By understanding these recovery techniques and following the best practices, you can minimize the risk of data loss and effectively recover from bad rebases.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Chapter%208/" class="btn btn-neutral float-left" title="Chapter 8 - Branching Strategies"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Chapter%2010/" class="btn btn-neutral float-right" title="Chapter 10 - Tagging and Releases">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Chapter%208/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Chapter%2010/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
