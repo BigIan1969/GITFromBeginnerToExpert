@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 14 - Git Hooks - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 14 - Git Hooks";
+        var mkdocs_page_input_path = "Chapter 14.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%202/">Chapter 2 - Installing and Configuring Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%204/">Chapter 4 - Understanding Commits and History</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%206/">Chapter 6 - Undoing Changes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%209/">Chapter 9 - Rebasing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2012/">Chapter 12 - Submodules and Subtrees</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Chapter 14 - Git Hooks</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-git-hooks">Understanding Git Hooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#client-side-hooks">Client-Side Hooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#server-side-hooks">Server-Side Hooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#automating-tasks-with-hooks">Automating Tasks with Hooks</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Appendix/">Appendix</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Chapter 14 - Git Hooks</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="chapter-14-git-hooks">Chapter 14: Git Hooks</h2>
+<p>Git hooks are powerful tools that allow you to customize and automate your Git workflow. They are scripts that Git executes automatically at various points in the Git lifecycle, enabling you to enforce policies, perform checks, and trigger actions based on Git events. This chapter will explore the concept of Git hooks and how they can be used to enhance your development workflow.</p>
+<p>We'll begin by understanding the different types of Git hooks and their trigger points. From there, we'll delve into the process of creating and configuring hooks, including writing scripts in various languages and managing hook execution. We'll then examine practical examples of how hooks can be used to automate tasks, such as code style checks, commit message validation, and deployment triggers. By the end of this chapter, you'll have a solid understanding of how to use Git hooks to streamline your workflow and enforce best practices.</p>
+<h3 id="understanding-git-hooks">Understanding Git Hooks</h3>
+<p>Git hooks are scripts that Git executes automatically before or after events such as commit, push, and receive. They are a powerful mechanism for customizing and automating your Git workflow, allowing you to enforce policies, perform checks, and trigger actions based on Git events.</p>
+<p><strong>How Git Hooks Work:</strong></p>
+<ul>
+<li><strong>Scripts in .git/hooks:</strong> Git hooks are stored as scripts in the .git/hooks directory of your Git repository.</li>
+<li><strong>Event Triggers:</strong> Git executes these scripts at specific points in the Git lifecycle, such as before a commit, after a push, or when receiving changes.</li>
+<li><strong>Customizable Behaviour:</strong> You can write these scripts in any scripting language, such as Bash, Python, or Perl, to customize Git's behaviour.</li>
+<li><strong>Client-Side and Server-Side Hooks:</strong> Git hooks can be client-side (executed on the developer's machine) or server-side (executed on the Git server).</li>
+</ul>
+<p><strong>Types of Git Hooks:</strong></p>
+<p>Git hooks are categorized into client-side and server-side hooks, each with different trigger points:</p>
+<ul>
+<li>
+<p><strong>Client-Side Hooks:</strong></p>
+</li>
+<li>
+<p>These hooks are executed on the developer's local machine.</p>
+</li>
+<li>They are used to enforce local policies and perform checks before committing or pushing changes.</li>
+<li>
+<p>Examples:</p>
+</li>
+<li>
+<p>pre-commit: Executed before a commit is made.</p>
+</li>
+<li>prepare-commit-msg: Executed before the commit message editor is opened.</li>
+<li>commit-msg: Executed after the commit message is entered.</li>
+<li>
+<p>pre-push: Executed before pushing changes to a remote repository.</p>
+</li>
+<li>
+<p><strong>Server-Side Hooks:</strong></p>
+</li>
+<li>
+<p>These hooks are executed on the Git server.</p>
+</li>
+<li>They are used to enforce server-side policies and control access to the repository.</li>
+<li>
+<p>Examples:</p>
+</li>
+<li>
+<p>pre-receive: Executed before any changes are received by the server.</p>
+</li>
+<li>update: Executed for each branch that is being updated.</li>
+<li>post-receive: Executed after changes are received by the server.</li>
+</ul>
+<p><strong>Common Use Cases for Git Hooks:</strong></p>
+<ul>
+<li><strong>Enforcing Coding Standards:</strong> Run linters or static analyzers to ensure code adheres to coding standards.</li>
+<li><strong>Validating Commit Messages:</strong> Check commit messages for proper formatting and content.</li>
+<li><strong>Preventing Bad Commits:</strong> Reject commits that don't meet certain criteria (e.g., missing tests, large file sizes).</li>
+<li><strong>Running Tests:</strong> Automatically run unit tests before committing or pushing changes.</li>
+<li><strong>Deploying Code:</strong> Trigger deployment scripts after receiving changes on the server.</li>
+<li><strong>Sending Notifications:</strong> Send email or chat notifications about Git events.</li>
+<li><strong>Controlling Access:</strong> Enforce access control policies on the server.</li>
+</ul>
+<p><strong>How to Create Git Hooks:</strong></p>
+<ol>
+<li><strong>Navigate to .git/hooks:</strong> Go to the .git/hooks directory of your Git repository.</li>
+<li><strong>Create a Script:</strong> Create a script file with the appropriate hook name (e.g., pre-commit).</li>
+<li><strong>Make it Executable:</strong> Make the script executable using chmod +x <hook-name>.</li>
+<li><strong>Write the Script:</strong> Write the script in your preferred scripting language.</li>
+<li><strong>Test the Hook:</strong> Test the hook by performing the Git action that triggers it.</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Local vs. Server:</strong> Understand the difference between client-side and server-side hooks.</li>
+<li><strong>Executable Scripts:</strong> Git hooks must be executable scripts.</li>
+<li><strong>Error Handling:</strong> Include proper error handling in your scripts to prevent unexpected behavior.</li>
+<li><strong>Performance:</strong> Keep hook scripts efficient to avoid slowing down Git operations.</li>
+<li><strong>Sharing Hooks:</strong> Client-side hooks are not automatically shared with other developers. Consider using templates or shared configuration files.</li>
+<li><strong>Security:</strong> Be cautious when executing external commands in your hook scripts.</li>
+</ul>
+<p>Git hooks are a powerful tool for customizing and automating your Git workflow. By understanding how they work and using them effectively, you can enhance your development process and enforce best practices.</p>
+<h3 id="client-side-hooks">Client-Side Hooks</h3>
+<p>Client-side Git hooks are scripts that execute on the developer's local machine before or after Git events, such as commits and pushes. They are designed to enforce local policies, perform checks, and automate tasks within the developer's working environment.</p>
+<p><strong>Purpose of Client-Side Hooks:</strong></p>
+<ul>
+<li><strong>Enforce Local Policies:</strong> Client-side hooks help ensure that developers adhere to project-specific coding standards, commit message formats, and other local policies.</li>
+<li><strong>Perform Checks:</strong> They automate checks for common issues, such as syntax errors, style violations, and missing tests.</li>
+<li><strong>Automate Tasks:</strong> Client-side hooks can automate repetitive tasks, such as running unit tests or generating documentation.</li>
+<li><strong>Improve Developer Workflow:</strong> By automating checks and enforcing policies, client-side hooks can improve the developer's workflow and reduce the likelihood of errors.</li>
+</ul>
+<p><strong>Common Client-Side Hooks:</strong></p>
+<ul>
+<li>
+<p><strong>pre-commit:</strong></p>
+</li>
+<li>
+<p>Executed before a commit is made.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Running linters and static analysers.</p>
+</li>
+<li>Checking for syntax errors.</li>
+<li>Running unit tests.</li>
+<li>Preventing commits with large file sizes.</li>
+<li>
+<p>Validating code style.</p>
+</li>
+<li>
+<p><strong>prepare-commit-msg:</strong></p>
+</li>
+<li>
+<p>Executed before the commit message editor is opened.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Adding a template to the commit message.</p>
+</li>
+<li>
+<p>Automatically populating the commit message with information from the branch or issue tracker.</p>
+</li>
+<li>
+<p><strong>commit-msg:</strong></p>
+</li>
+<li>
+<p>Executed after the commit message is entered.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Validating the commit message format.</p>
+</li>
+<li>Checking for required keywords or prefixes.</li>
+<li>
+<p>Preventing commits with empty or incomplete commit messages.</p>
+</li>
+<li>
+<p><strong>pre-push:</strong></p>
+</li>
+<li>
+<p>Executed before pushing changes to a remote repository.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Running integration tests.</p>
+</li>
+<li>Checking for uncommitted changes.</li>
+<li>Preventing pushes to specific branches.</li>
+</ul>
+<p><strong>Example: pre-commit Hook (Bash):</strong></p>
+<pre><code>#!/bin/sh
+# Check for syntax errors in Python files
+python3 -m py_compile $(git diff --cached --name-only --diff-filter=ACMR | grep '\.py$')
+# Run unit tests
+pytest
+# Check for large files
+large_files=$(git diff --cached --name-only | xargs du -h | awk '$1 &gt;= &quot;1M&quot; {print $2}')
+if [ -n &quot;$large_files&quot; ]; then
+  echo &quot;Error: Large files found:&quot;
+  echo &quot;$large_files&quot;
+  exit 1
+fi
+exit 0
+</code></pre>
+<p><strong>Key Considerations:</strong></p>
+<ul>
+<li><strong>Local Scope:</strong> Client-side hooks are local to the developer's machine and are not automatically shared with other team members.</li>
+<li><strong>Executable Scripts:</strong> Client-side hooks must be executable scripts.</li>
+<li><strong>Error Handling:</strong> Include proper error handling in your scripts to prevent unexpected behaviour.</li>
+<li><strong>Performance:</strong> Keep hook scripts efficient to avoid slowing down Git operations.</li>
+<li>
+<p><strong>Sharing Hooks:</strong> To share hooks with your team, you can:</p>
+</li>
+<li>
+<p>Include the hook scripts in your repository and provide instructions for installation.</p>
+</li>
+<li>Use a shared configuration file or template.</li>
+<li>Use a tool that helps manage and distribute git hooks.</li>
+</ul>
+<p>Client-side hooks are a valuable tool for improving developer workflows and enforcing local policies. By understanding how they work and using them effectively, you can enhance your development process and reduce the likelihood of errors.</p>
+<h3 id="server-side-hooks">Server-Side Hooks</h3>
+<p>Server-side Git hooks are scripts that execute on the Git server before or after changes are received. They are designed to enforce server-side policies, control access to the repository, and automate server-side tasks.</p>
+<p><strong>Purpose of Server-Side Hooks:</strong></p>
+<ul>
+<li><strong>Enforce Server-Side Policies:</strong> Server-side hooks help ensure that changes pushed to the repository meet certain criteria, such as code quality standards, security requirements, and access control policies.</li>
+<li><strong>Control Access:</strong> They can control who can push changes to specific branches or the entire repository.</li>
+<li><strong>Automate Server-Side Tasks:</strong> Server-side hooks can automate tasks such as deployment, notifications, and backups.</li>
+<li><strong>Maintain Repository Integrity:</strong> They help maintain the integrity of the repository by preventing bad commits or unauthorized changes.</li>
+</ul>
+<p><strong>Common Server-Side Hooks:</strong></p>
+<ul>
+<li>
+<p><strong>pre-receive:</strong></p>
+</li>
+<li>
+<p>Executed before any changes are received by the server.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Rejecting pushes that don't meet certain criteria (e.g., code quality checks, security scans).</p>
+</li>
+<li>Enforcing branch protection policies.</li>
+<li>Checking for authorized users.</li>
+<li>
+<p>Checking commit message formatting.</p>
+</li>
+<li>
+<p><strong>update:</strong></p>
+</li>
+<li>
+<p>Executed for each branch that is being updated.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Checking for specific changes in the branch.</p>
+</li>
+<li>Preventing force pushes to protected branches.</li>
+<li>
+<p>Enforcing coding standards for specific branches.</p>
+</li>
+<li>
+<p><strong>post-receive:</strong></p>
+</li>
+<li>
+<p>Executed after changes are received by the server.</p>
+</li>
+<li>
+<p>Common use cases:</p>
+</li>
+<li>
+<p>Triggering deployment scripts.</p>
+</li>
+<li>Sending notifications (e.g., email, chat).</li>
+<li>Updating issue trackers.</li>
+<li>Running backups.</li>
+</ul>
+<p><strong>Example: pre-receive Hook (Bash):</strong></p>
+<pre><code>#!/bin/sh
+while read oldrev newrev refname; do
+  branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  if [[ $branch == &quot;main&quot; ]]; then
+    # Prevent force pushes to main
+    if [ $(git rev-list $oldrev..$newrev | wc -l) -gt $(git rev-list $newrev..$oldrev | wc -l) ]; then
+      echo &quot;Error: Force pushes to main branch are not allowed.&quot;
+      exit 1
+    fi
+  fi
+  # Check commit messages
+  commits=$(git rev-list $oldrev..$newrev)
+  for commit in $commits; do
+    message=$(git log -1 --pretty=%B $commit)
+    if [[ ! &quot;$message&quot; =~ &quot;\[JIRA-\d+\]&quot; ]]; then
+      echo &quot;Error: Commit message must include a JIRA ticket number.&quot;
+      exit 1
+    fi
+  done
+done
+exit 0
+</code></pre>
+<p><strong>Key Considerations:</strong></p>
+<ul>
+<li><strong>Server Access:</strong> Server-side hooks require access to the Git server.</li>
+<li><strong>Security:</strong> Be cautious when executing external commands in your hook scripts, as they can pose security risks.</li>
+<li><strong>Performance:</strong> Keep hook scripts efficient to avoid slowing down Git operations.</li>
+<li><strong>Error Handling:</strong> Include proper error handling in your scripts to prevent unexpected behavior.</li>
+<li><strong>Testing:</strong> Thoroughly test your server-side hooks to ensure they work as expected.</li>
+<li><strong>Collaboration:</strong> Coordinate with your team and server administrators when implementing server-side hooks.</li>
+<li><strong>Version Control:</strong> Consider placing your hook scripts under version control.</li>
+</ul>
+<p>Server-side hooks are a powerful tool for enforcing server-side policies and automating server-side tasks. By understanding how they work and using them effectively, you can enhance the security, reliability, and efficiency of your Git server.</p>
+<h3 id="automating-tasks-with-hooks">Automating Tasks with Hooks</h3>
+<p>Git hooks provide a powerful mechanism to automate various tasks within your Git workflow, improving efficiency, consistency, and code quality. By writing scripts that execute at specific points in the Git lifecycle, you can streamline development processes and enforce best practices.</p>
+<p><strong>Common Automation Scenarios:</strong></p>
+<ol>
+<li>
+<p><strong>Code Quality Checks:</strong></p>
+</li>
+<li>
+<p><strong>Goal:</strong> Ensure code adheres to coding standards and prevent syntax errors.</p>
+</li>
+<li><strong>Hook:</strong> pre-commit</li>
+<li><strong>Example (Python):</strong></li>
+</ol>
+<pre><code>#!/bin/sh
+# Check Python syntax and style
+python3 -m py_compile $(git diff --cached --name-only --diff-filter=ACMR | grep '\.py$')
+flake8 $(git diff --cached --name-only --diff-filter=ACMR | grep '\.py$')
+# Run unit tests
+pytest
+exit 0
+</code></pre>
+<ul>
+<li>
+<p><strong>Explanation:</strong> This script checks Python syntax, runs flake8 for style violations, and executes unit tests before allowing a commit.</p>
+</li>
+<li>
+<p><strong>Commit Message Validation:</strong></p>
+</li>
+<li>
+<p><strong>Goal:</strong> Enforce consistent commit message formatting.</p>
+</li>
+<li><strong>Hook:</strong> commit-msg</li>
+<li><strong>Example (Bash):</strong></li>
+</ul>
+<pre><code>#!/bin/sh
+commit_msg=$(cat $1)
+if ! grep -q &quot;^[A-Z]+-[0-9]+: &quot; &lt;&lt;&lt; &quot;$commit_msg&quot;; then
+  echo &quot;Error: Commit message must start with 'PROJECT-123: '.&quot;
+  exit 1
+fi
+exit 0
+</code></pre>
+<ul>
+<li>
+<p><strong>Explanation:</strong> This script checks if the commit message starts with a specific project ID and issue number format.</p>
+</li>
+<li>
+<p><strong>Preventing Large Files:</strong></p>
+</li>
+<li>
+<p><strong>Goal:</strong> Prevent accidental commits of large files.</p>
+</li>
+<li><strong>Hook:</strong> pre-commit</li>
+<li><strong>Example (Bash):</strong></li>
+</ul>
+<pre><code>#!/bin/sh
+large_files=$(git diff --cached --name-only | xargs du -h | awk '$1 &gt;= &quot;1M&quot; {print $2}')
+if [ -n &quot;$large_files&quot; ]; then
+  echo &quot;Error: Large files found:&quot;
+  echo &quot;$large_files&quot;
+  exit 1
+fi
+exit 0
+</code></pre>
+<ul>
+<li>
+<p><strong>Explanation:</strong> This script checks for files larger than 1MB and prevents the commit if found.</p>
+</li>
+<li>
+<p><strong>Deployment Triggers:</strong></p>
+</li>
+<li>
+<p><strong>Goal:</strong> Automatically deploy code after receiving pushes to specific branches.</p>
+</li>
+<li><strong>Hook:</strong> post-receive</li>
+<li><strong>Example (Bash):</strong></li>
+</ul>
+<pre><code>#!/bin/sh
+while read oldrev newrev refname; do
+  branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  if [[ $branch == &quot;main&quot; ]]; then
+    # Deploy to production
+    /path/to/deploy_script.sh
+  fi
+done
+exit 0
+</code></pre>
+<ul>
+<li>
+<p><strong>Explanation:</strong> This script triggers a deployment script when changes are pushed to the main branch.</p>
+</li>
+<li>
+<p><strong>Notifications:</strong></p>
+</li>
+<li>
+<p><strong>Goal:</strong> Send notifications about Git events (e.g., pushes, merges).</p>
+</li>
+<li><strong>Hook:</strong> post-receive</li>
+<li><strong>Example (Bash, using curl and a Slack webhook):</strong></li>
+</ul>
+<pre><code>#!/bin/sh
+while read oldrev newrev refname; do
+  branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+  commits=$(git log $oldrev..$newrev --pretty=format:&quot;%h - %s&quot;)
+  message=&quot;New commits to $branch:\n$commits&quot;
+  curl -X POST -H 'Content-type: application/json' --data &quot;{\&quot;text\&quot;:\&quot;$message\&quot;}&quot; &lt;SLACK_WEBHOOK_URL&gt;
+done
+exit 0
+</code></pre>
+<ul>
+<li><strong>Explanation:</strong> This script sends a Slack notification with the commit messages when changes are pushed.</li>
+</ul>
+<p><strong>Best Practices for Automation:</strong></p>
+<ul>
+<li><strong>Keep Hooks Simple:</strong> Avoid complex scripts that slow down Git operations.</li>
+<li><strong>Handle Errors Gracefully:</strong> Include proper error handling to prevent unexpected behavior.</li>
+<li><strong>Test Thoroughly:</strong> Test your hooks to ensure they work as expected.</li>
+<li><strong>Use Environment Variables:</strong> Avoid hardcoding sensitive information in your scripts.</li>
+<li><strong>Version Control:</strong> Consider placing your hook scripts under version control.</li>
+<li><strong>Document Hooks:</strong> Document the purpose and functionality of your hooks.</li>
+<li><strong>Consider Performance:</strong> Avoid resource intensive operations.</li>
+<li><strong>Use Shared Hooks:</strong> If possible use shared hooks, to ensure all developers use the same hooks.</li>
+<li><strong>Avoid blocking operations:</strong> If possible make hooks non blocking, so that they do not slow down the development process.</li>
+</ul>
+<p>By automating tasks with Git hooks, you can improve efficiency, enforce consistency, and streamline your development workflow.</p>
+<p><a href="https://buymeacoffee.com/bigian">Buy me a coffee</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Chapter%2013/" class="btn btn-neutral float-left" title="Chapter 13 - Collaborative Workflows"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Chapter%2015/" class="btn btn-neutral float-right" title="Chapter 15 - Git Internals">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Chapter%2013/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Chapter%2015/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

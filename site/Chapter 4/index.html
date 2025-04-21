@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 4 - Understanding Commits and History - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 4 - Understanding Commits and History";
+        var mkdocs_page_input_path = "Chapter 4.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%202/">Chapter 2 - Installing and Configuring Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Chapter 4 - Understanding Commits and History</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-anatomy-of-a-commit">The Anatomy of a Commit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#viewing-detailed-commit-information-git-show">Viewing Detailed Commit Information (git show)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#navigating-commit-history">Navigating Commit History</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#understanding-commit-hashes">Understanding Commit Hashes</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%206/">Chapter 6 - Undoing Changes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%209/">Chapter 9 - Rebasing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2012/">Chapter 12 - Submodules and Subtrees</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2014/">Chapter 14 - Git Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Appendix/">Appendix</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Chapter 4 - Understanding Commits and History</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="chapter-4-understanding-commits-and-history">Chapter 4: Understanding Commits and History</h2>
+<p>Commits are the building blocks of Git's version control system. They represent snapshots of your project at specific points in time, recording the changes you've made and providing a historical record of your work. This chapter will delve into the intricacies of commits and the commit history, providing a deeper understanding of how Git manages and stores your project's evolution.</p>
+<p>We'll begin by examining the anatomy of a commit, dissecting its components and understanding the information it contains. You'll learn how Git uses cryptographic hashes to ensure data integrity and track changes. We'll then explore how to navigate and interpret the commit history, using commands like git log to view and filter commits. Finally, we'll discuss how to understand commit hashes, the unique identifiers that allow Git to reference specific commits. By the end of this chapter, you'll have a solid grasp of commits and the commit history, empowering you to effectively manage and understand your project's development.</p>
+<h3 id="the-anatomy-of-a-commit">The Anatomy of a Commit</h3>
+<p>A Git commit is more than just a snapshot of your files. It's a fundamental unit of version control, containing essential metadata that describes the changes you've made. Understanding the anatomy of a commit is crucial for comprehending how Git tracks and manages your project's history.</p>
+<p><strong>Components of a Commit:</strong></p>
+<ol>
+<li>
+<p><strong>Snapshot of Files:</strong></p>
+</li>
+<li>
+<p>A commit captures the state of your project's files at a specific point in time.</p>
+</li>
+<li>
+<p>Git stores these snapshots efficiently by only saving the differences between commits, rather than the entire file contents each time.</p>
+</li>
+<li>
+<p><strong>Commit Hash (SHA-1):</strong></p>
+</li>
+<li>
+<p>Each commit is identified by a unique SHA-1 hash, a 40-character hexadecimal string.  </p>
+</li>
+<li>This hash is calculated based on the commit's contents and metadata, ensuring data integrity.  </li>
+<li>
+<p>The hash serves as a unique identifier for the commit, allowing Git to reference it precisely.  </p>
+</li>
+<li>
+<p><strong>Author Information:</strong></p>
+</li>
+<li>
+<p>The author's name and email address, as configured in Git, are included in the commit.  </p>
+</li>
+<li>
+<p>This information identifies who made the changes.  </p>
+</li>
+<li>
+<p><strong>Committer Information:</strong></p>
+</li>
+<li>
+<p>The committer's name and email address, which may differ from the author in certain scenarios (e.g., when applying patches).  </p>
+</li>
+<li>
+<p>This information indicates who applied the commit to the repository.  </p>
+</li>
+<li>
+<p><strong>Commit Message:</strong></p>
+</li>
+<li>
+<p>A descriptive message that explains the changes made in the commit.  </p>
+</li>
+<li>
+<p>A well-written commit message is crucial for understanding the history and purpose of the changes.  </p>
+</li>
+<li>
+<p><strong>Timestamp:</strong></p>
+</li>
+<li>
+<p>The date and time when the commit was created.</p>
+</li>
+<li>
+<p>This information provides a chronological record of the project's evolution.</p>
+</li>
+<li>
+<p><strong>Parent Commit(s):</strong></p>
+</li>
+<li>
+<p>A reference to the parent commit(s) of the current commit.  </p>
+</li>
+<li>For linear history, a commit typically has one parent.</li>
+<li>For merge commits, a commit has multiple parents, indicating the branches that were merged.  </li>
+</ol>
+<p><strong>How Git Stores Commits:</strong></p>
+<ul>
+<li>Git stores commits as objects in the .git/objects directory.</li>
+<li>These objects are content-addressable, meaning their names (hashes) are derived from their contents.  </li>
+<li>This ensures that if the content of a commit changes, its hash will also change, allowing Git to detect data corruption.</li>
+<li>Git uses a directed acyclic graph (DAG) to represent the commit history, where commits are nodes and parent-child relationships are edges.  </li>
+</ul>
+<p><strong>Importance of Commit Anatomy:</strong></p>
+<ul>
+<li><strong>Data Integrity:</strong> The SHA-1 hash ensures that commits are immutable and that any changes can be detected.  </li>
+<li><strong>Historical Record:</strong> The author, committer, timestamp, and commit message provide a detailed record of the project's evolution.  </li>
+<li><strong>Navigation:</strong> The parent commit(s) allow Git to navigate through the commit history and understand the relationships between commits.</li>
+<li><strong>Collaboration:</strong> The author and committer information helps identify contributors and facilitate communication.  </li>
+</ul>
+<p>By understanding the anatomy of a commit, you gain a deeper appreciation for how Git manages and tracks your project's history, empowering you to effectively navigate and understand your project's development.</p>
+<h3 id="viewing-detailed-commit-information-git-show">Viewing Detailed Commit Information (git show)</h3>
+<p>The git show command is used to display detailed information about a specific commit, including the commit message, author, date, and the changes made in that commit. This command is invaluable for examining the contents of a commit and understanding the modifications it introduced.</p>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Viewing the details of the most recent commit:</strong></li>
+</ul>
+<pre><code>git show
+</code></pre>
+<p>If you don't specify a commit hash, git show will display the details of the HEAD commit (the most recent commit on the current branch).</p>
+<ul>
+<li><strong>Viewing the details of a specific commit:</strong></li>
+</ul>
+<pre><code>git show &lt;commit-hash&gt;
+</code></pre>
+<p>Replace <commit-hash> with the SHA-1 hash of the commit you want to view. You can use the full 40-character hash or an abbreviated version.</p>
+<p><strong>Information Displayed by git show:</strong></p>
+<ul>
+<li><strong>Commit Hash:</strong> The SHA-1 hash of the commit.</li>
+<li><strong>Author and Committer Information:</strong> The author's and committer's names and email addresses.</li>
+<li><strong>Date:</strong> The date and time of the commit.</li>
+<li><strong>Commit Message:</strong> The descriptive message associated with the commit.</li>
+<li><strong>Diff (Changes):</strong> The changes made in the commit, displayed in diff format. This shows the added and removed lines, allowing you to see exactly what was modified.</li>
+</ul>
+<p><strong>Example Output:</strong></p>
+<pre><code>commit 123456abcdef7890123456abcdef7890123456
+
+Author: John Doe &lt;john.doe@example.com&gt;
+
+Date:   Tue Oct 24 10:00:00 2023 +0000
+
+    Fix bug in user authentication
+
+diff --git a/src/auth.py b/src/auth.py
+
+index abcdef1..1234567 100644
+
+--- a/src/auth.py
+
++++ b/src/auth.py
+
+@@ -10,7 +10,7 @@
+
+     def authenticate_user(self, username, password):
+
+         user = self.get_user(username)
+
+         if user:
+
+-            if user.password == password:
+
++            if self.verify_password(password, user.password):
+
+                 return user
+
+         return None
+
++    def verify_password(self, input_password, stored_password):
+
++        return input_password == stored_password
+</code></pre>
+<p><strong>Key Features and Options:</strong></p>
+<ul>
+<li><strong>Viewing specific files:</strong> You can use git show to view the changes made to a specific file in a commit:</li>
+</ul>
+<pre><code>git show &lt;commit-hash&gt; -- &lt;file-path&gt;
+</code></pre>
+<ul>
+<li><strong>Viewing the raw commit content:</strong></li>
+</ul>
+<pre><code>git show --raw &lt;commit-hash&gt;
+</code></pre>
+<p>This option displays the raw commit content, including the object type, size, and content.</p>
+<ul>
+<li><strong>Viewing the commit as a patch:</strong></li>
+</ul>
+<pre><code>git show -p &lt;commit-hash&gt;
+</code></pre>
+<p>The -p (or --patch) option is the default behavior, but it can be explicitly specified.</p>
+<p><strong>Importance of git show:</strong></p>
+<ul>
+<li>git show allows you to inspect the details of a commit, understanding the changes it introduced.</li>
+<li>It is essential for code reviews and debugging.</li>
+<li>It helps you understand the evolution of your project by examining individual commits.</li>
+</ul>
+<p>By mastering the git show command, you can effectively examine the details of commits and gain a deeper understanding of your project's history.</p>
+<h3 id="navigating-commit-history">Navigating Commit History</h3>
+<p>Git provides several powerful tools for navigating and exploring the commit history of your repository. Understanding how to move through the history is crucial for reviewing changes, finding specific commits, and understanding the evolution of your project.</p>
+<p><strong>Basic Navigation with git log:</strong></p>
+<ul>
+<li>As we've seen, git log displays the commit history. By default, it shows commits in reverse chronological order (most recent first).</li>
+<li>Use the arrow keys (or j and k in some terminals) to scroll through the log output.</li>
+<li>Press q to exit the git log display.</li>
+</ul>
+<p><strong>Using Commit Hashes:</strong></p>
+<ul>
+<li>Each commit has a unique SHA-1 hash. You can use these hashes to refer to specific commits.</li>
+<li>You can use the full 40-character hash or an abbreviated version (as long as it's unique).</li>
+<li>You can use the hash with commands like <code>git show</code>, <code>git checkout</code>, and <code>git diff</code> to view or manipulate specific commits.</li>
+</ul>
+<p><strong>Relative References:</strong></p>
+<ul>
+<li>
+<p>Git allows you to refer to commits relative to other commits using special symbols:</p>
+</li>
+<li>
+<p>HEAD: Refers to the most recent commit on the current branch.</p>
+</li>
+<li>^: Refers to the parent of a commit.</li>
+<li>
+<p>~<n>: Refers to the nth parent of a commit.</p>
+</li>
+<li>
+<p>Examples:</p>
+</li>
+<li>
+<p>HEAD^: Refers to the parent of the HEAD commit.</p>
+</li>
+<li>HEAD~2: Refers to the grandparent of the HEAD commit.</li>
+<li><commit-hash>^: Refers to the parent of the specified commit.</li>
+</ul>
+<p><strong>Using git checkout:</strong></p>
+<ul>
+<li><code>git checkout</code> allows you to switch to a specific commit.</li>
+<li><code>git checkout &lt;commit-hash&gt;</code>: switches to the specified commit. This puts your working directory into a "detached HEAD" state, meaning you're not on a branch.</li>
+<li>This is useful for examining the state of your project at a specific point in time.</li>
+</ul>
+<p><strong>Using git diff:</strong></p>
+<ul>
+<li><code>git diff</code> allows you to view the differences between commits.</li>
+<li><code>git diff &lt;commit-hash1&gt; &lt;commit-hash2&gt;</code>: Shows the differences between two specified commits.</li>
+<li><code>git diff &lt;commit-hash&gt;</code>: Shows the differences between the specified commit and the working directory.</li>
+<li><code>git diff HEAD</code>: Shows the difference between the most recent commit and the working directory.</li>
+</ul>
+<p><strong>Using git bisect:</strong></p>
+<ul>
+<li><code>git bisect</code> is a powerful tool for finding the commit that introduced a bug.</li>
+<li>It performs a binary search through the commit history, allowing you to quicklyidentify the problematic commit.  </li>
+</ul>
+<p><strong>Using git reflog:</strong></p>
+<ul>
+<li><code>git reflog</code> displays a log of all changes to the HEAD pointer, including branch switches and resets.</li>
+<li>It can be helpful for recovering lost commits or understanding how you arrived at a particular state.</li>
+</ul>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You discover a bug in your code.</li>
+<li>You use <code>git log</code> to find the commit that introduced the bug.</li>
+<li>You use <code>git show &lt;commit-hash&gt;</code> to examine the changes made in that commit.</li>
+<li>You use <code>git checkout &lt;commit-hash&gt;^</code> to switch to the parent commit and verify that the bug is not present.</li>
+<li>You use <code>git bisect</code> to automate this process.</li>
+</ol>
+<p>By mastering these techniques, you can effectively navigate and explore the commit history of your Git repositories, gaining valuable insights into your project's evolution and facilitating debugging and troubleshooting.</p>
+<h3 id="understanding-commit-hashes">Understanding Commit Hashes</h3>
+<p>Commit hashes are fundamental to Git's architecture. They are unique identifiers that Git uses to refer to specific commits, providing a robust and reliable way to track changes and navigate the commit history.</p>
+<p><strong>What are Commit Hashes?</strong></p>
+<ul>
+<li><strong>SHA-1 Hashes:</strong> Git uses the SHA-1 (Secure Hash Algorithm 1) cryptographic hash function to generate commit hashes.</li>
+<li><strong>Unique Identifiers:</strong> Each commit is assigned a unique 40-character hexadecimal string.</li>
+<li><strong>Content-Addressable:</strong> The hash is calculated based on the contents of the commit, including the file snapshots, author information, commit message, and parent commit(s).</li>
+<li><strong>Data Integrity:</strong> If the content of a commit changes, its hash will also change. This ensures that commits are immutable and that any modifications can be detected.</li>
+</ul>
+<p><strong>Why Commit Hashes Are Important:</strong></p>
+<ul>
+<li><strong>Referencing Commits:</strong> Commit hashes provide a precise way to refer to specific commits. This is crucial for commands like git show, git checkout, git diff, and git revert.</li>
+<li><strong>Tracking Changes:</strong> Git uses commit hashes to track the history of your project. The parent-child relationships between commits are established using these hashes.</li>
+<li><strong>Data Integrity:</strong> The content-addressable nature of commit hashes ensures that commits are immutable, and that any data corruption can be detected.</li>
+<li><strong>Distributed Collaboration:</strong> Commit hashes allow developers to share and synchronize commits across different repositories without relying on a central server.</li>
+<li><strong>Branching and Merging:</strong> Git uses commit hashes to track the history of branches and to identify the common ancestor of two branches during a merge.</li>
+</ul>
+<p><strong>Working with Commit Hashes:</strong></p>
+<ul>
+<li>
+<p><strong>Full vs. Abbreviated Hashes:</strong></p>
+</li>
+<li>
+<p>You can use the full 40-character hash to refer to a commit.</p>
+</li>
+<li>Git also allows you to use abbreviated hashes, as long as they are unique within the repository.</li>
+<li>
+<p>Git will automatically resolve abbreviated hashes to the full hash.</p>
+</li>
+<li>
+<p><strong>Finding Commit Hashes:</strong></p>
+</li>
+<li>
+<p>Use git log to display the commit history, which includes the commit hashes.</p>
+</li>
+<li>
+<p>Use git reflog to see a log of all changes to the HEAD pointer, including commit hashes.</p>
+</li>
+<li>
+<p><strong>Using Commit Hashes in Commands:</strong></p>
+</li>
+<li>
+<p><code>git show &lt;commit-hash&gt;</code>: Displays the details of the specified commit.</p>
+</li>
+<li><code>git checkout &lt;commit-hash&gt;</code>: Switches to the specified commit.</li>
+<li>
+<p><code>git diff &lt;commit-hash1&gt; &lt;commit-hash2&gt;</code>: Shows the differences between two commits.</p>
+</li>
+<li>
+<p><strong>Security Considerations:</strong></p>
+</li>
+<li>
+<p>While SHA-1 has been shown to have weaknesses in certain cryptographic applications, it is still considered secure for Git's use case. The risk of hash collisions in Git is extremely low.</p>
+</li>
+<li>Git is in the process of transitioning to SHA-256.</li>
+</ul>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You find a bug in your code and want to examine the commit that introduced it.</li>
+<li>You use <code>git log</code> to find the commit hash of the problematic commit.</li>
+<li>You use <code>git show &lt;commit-hash&gt;</code> to examine the changes made in that commit.</li>
+<li>You then use <code>git checkout &lt;commit-hash&gt;^</code> to revert to the parent of that commit to test if the bug is now gone.</li>
+</ol>
+<p>By understanding commit hashes, you can effectively navigate and manipulate your Git repository, ensuring data integrity and maintaining a clear and organized history of your project.</p>
+<p><a href="https://buymeacoffee.com/bigian">Buy me a coffee</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Part%202/" class="btn btn-neutral float-left" title="Part 2 - Core Git Concepts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Chapter%205/" class="btn btn-neutral float-right" title="Chapter 5 - Branching and Merging">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Part%202/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Chapter%205/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

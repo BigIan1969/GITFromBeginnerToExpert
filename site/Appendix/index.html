@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Appendix - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Appendix";
+        var mkdocs_page_input_path = "Appendix.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%202/">Chapter 2 - Installing and Configuring Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%204/">Chapter 4 - Understanding Commits and History</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%206/">Chapter 6 - Undoing Changes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%209/">Chapter 9 - Rebasing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2012/">Chapter 12 - Submodules and Subtrees</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2014/">Chapter 14 - Git Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Appendix</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Appendix</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>=========</p>
+<h3 id="git-command-reference">Git Command Reference</h3>
+<p>This appendix provides a concise reference for commonly used Git commands.</p>
+<p><strong>I. Basic Commands</strong></p>
+<ul>
+<li>
+<p><strong>git init</strong></p>
+</li>
+<li>
+<p>Initialize a new Git repository.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--bare: Create a bare repository (for sharing).</p>
+</li>
+<li>
+<p><strong>git clone <repository></strong></p>
+</li>
+<li>
+<p>Clone (copy) a repository into a new directory.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--depth <depth>: Create a shallow clone with limited history.</p>
+</li>
+<li>
+<p>--recurse-submodules: Initialize and update submodules.</p>
+</li>
+<li>
+<p><strong>git config</strong></p>
+</li>
+<li>
+<p>Get or set Git configuration variables.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--global: Set configuration for all repositories for the current user.</p>
+</li>
+<li>user.name <name>: Set your username.</li>
+<li>user.email <email>: Set your email address.</li>
+<li>--list: List all configuration variables.</li>
+</ul>
+<p><strong>II. Working with Changes</strong></p>
+<ul>
+<li>
+<p><strong>git status</strong></p>
+</li>
+<li>
+<p>Show the status of the working directory and staging area.</p>
+</li>
+<li>
+<p><strong>git add <file(s)></strong></p>
+</li>
+<li>
+<p>Add file(s) to the staging area.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>.: Add all changes in the current directory and subdirectories.</p>
+</li>
+<li>-u: Add all modifications to tracked files.</li>
+<li>
+<p>-A: Add all new, modified, and deleted files.</p>
+</li>
+<li>
+<p><strong>git reset HEAD <file(s)></strong></p>
+</li>
+<li>
+<p>Remove file(s) from the staging area.</p>
+</li>
+<li>
+<p><strong>git diff</strong></p>
+</li>
+<li>
+<p>Show changes between the working directory and the staging area.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--cached: Show changes between the staging area and the last commit.</p>
+</li>
+<li>
+<p><commit1> <commit2>: Show differences between two commits.</p>
+</li>
+<li>
+<p><strong>git commit</strong></p>
+</li>
+<li>
+<p>Commit staged changes to the repository.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-m "<message>": Provide a commit message.</p>
+</li>
+<li>-a: Automatically stage changes to tracked files before committing.</li>
+<li>--amend: Amend the last commit.</li>
+<li>
+<p>--no-edit: Amend the last commit without changing the message.</p>
+</li>
+<li>
+<p><strong>git rm <file(s)></strong></p>
+</li>
+<li>
+<p>Remove file(s) from the working directory and the staging area.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--cached: Remove file(s) only from the staging area.</p>
+</li>
+<li>
+<p><strong>git mv <old> <new></strong></p>
+</li>
+<li>
+<p>Rename file(s).</p>
+</li>
+</ul>
+<p><strong>III. Viewing History</strong></p>
+<ul>
+<li>
+<p><strong>git log</strong></p>
+</li>
+<li>
+<p>Show the commit history.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--oneline: Show history in a concise format.</p>
+</li>
+<li>--graph: Show history as a graph.</li>
+<li>-p: Show the diff for each commit.</li>
+<li>--author <author>: Filter by author.</li>
+<li>--since <date>: Filter by date (e.g., "1 week ago").</li>
+<li>
+<p>--grep <pattern>: Filter by commit message.</p>
+</li>
+<li>
+<p><strong>git show <commit></strong></p>
+</li>
+<li>
+<p>Show the details of a specific commit.</p>
+</li>
+<li>
+<p><strong>git reflog</strong></p>
+</li>
+<li>
+<p>Show a log of HEAD changes.</p>
+</li>
+</ul>
+<p><strong>IV. Branching and Merging</strong></p>
+<ul>
+<li>
+<p><strong>git branch</strong></p>
+</li>
+<li>
+<p>List, create, or delete branches.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-a: List all remote and local branches.</p>
+</li>
+<li>-d <branch>: Delete a branch.</li>
+<li>
+<p>-D <branch>: Force delete a branch.</p>
+</li>
+<li>
+<p><strong>git checkout <branch></strong></p>
+</li>
+<li>
+<p>Switch to a branch.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-b <new-branch>: Create and switch to a new branch.</p>
+</li>
+<li>
+<p><strong>git merge <branch></strong></p>
+</li>
+<li>
+<p>Merge changes from a branch into the current branch.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--no-ff: Create a merge commit even if a fast-forward is possible.</p>
+</li>
+<li>
+<p><strong>git rebase <branch></strong></p>
+</li>
+<li>
+<p>Reapply commits on top of another base branch.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-i <branch>: Interactive rebase.</p>
+</li>
+</ul>
+<p><strong>V. Remote Repositories</strong></p>
+<ul>
+<li>
+<p><strong>git remote</strong></p>
+</li>
+<li>
+<p>Manage remote repositories.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-v: List remote URLs.</p>
+</li>
+<li>add <name> <url>: Add a remote repository.</li>
+<li>
+<p>set-url <name> <url>: Change a remote repository's URL.</p>
+</li>
+<li>
+<p><strong>git fetch <remote></strong></p>
+</li>
+<li>
+<p>Download objects and refs from another repository.</p>
+</li>
+<li>
+<p><strong>git pull <remote> <branch></strong></p>
+</li>
+<li>
+<p>Fetch from and integrate with another repository or a local branch.</p>
+</li>
+<li>
+<p><strong>git push <remote> <branch></strong></p>
+</li>
+<li>
+<p>Update remote refs along with associated objects.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-u: Set upstream branch.</p>
+</li>
+<li>--force: Force push (use with caution).</li>
+</ul>
+<p><strong>VI. Undoing Changes</strong></p>
+<ul>
+<li>
+<p><strong>git checkout -- <file></strong></p>
+</li>
+<li>
+<p>Discard changes in the working directory.</p>
+</li>
+<li>
+<p><strong>git reset HEAD <file></strong></p>
+</li>
+<li>
+<p>Unstage file(s).</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>--soft <commit>: Reset HEAD to <commit>, but leave changes in the working directory and staging area.</p>
+</li>
+<li>--mixed <commit>: Reset HEAD to <commit>, and unstage changes.</li>
+<li>
+<p>--hard <commit>: Reset HEAD to <commit>, and discard all changes.</p>
+</li>
+<li>
+<p><strong>git revert <commit></strong></p>
+</li>
+<li>
+<p>Create a new commit that undoes the changes of <commit>.</p>
+</li>
+</ul>
+<p><strong>VII. Stashing</strong></p>
+<ul>
+<li>
+<p><strong>git stash</strong></p>
+</li>
+<li>
+<p>Temporarily save modified, tracked files.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>save "<message>": Stash with a message.</p>
+</li>
+<li>list: List stashes.</li>
+<li>apply: Apply the most recent stash.</li>
+<li>pop: Apply the most recent stash and remove it.</li>
+<li>show: Show the changes in the most recent stash.</li>
+<li>drop <stash>: Remove a stash.</li>
+</ul>
+<p><strong>VIII. Other Useful Commands</strong></p>
+<ul>
+<li>
+<p><strong>git tag</strong></p>
+</li>
+<li>
+<p>Create, list, or delete tags.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>-a <tag> -m "<message>": Create an annotated tag.</p>
+</li>
+<li>-d <tag>: Delete a tag.</li>
+<li>
+<p>push origin --tags: Push all tags to the remote repository.</p>
+</li>
+<li>
+<p><strong>git grep <pattern></strong></p>
+</li>
+<li>
+<p>Search for patterns in tracked files.</p>
+</li>
+<li>
+<p><strong>git bisect</strong></p>
+</li>
+<li>
+<p>Use binary search to find the commit that introduced a bug.</p>
+</li>
+<li>
+<p><strong>git submodule</strong></p>
+</li>
+<li>
+<p>Manage submodules.</p>
+</li>
+<li>
+<p>Options:</p>
+</li>
+<li>
+<p>add <repo> <path>: Add a submodule.</p>
+</li>
+<li>init: Initialize submodules.</li>
+<li>
+<p>update: Update submodules.</p>
+</li>
+<li>
+<p><strong>git gc</strong></p>
+</li>
+<li>
+<p>Run garbage collection.</p>
+</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>This is not an exhaustive list but covers the most commonly used commands.</li>
+<li>Always refer to the official Git documentation for the most up-to-date and detailed information.</li>
+</ul>
+<p>Use the git help <command> command to get help on a specific command (e.g., git help commit).</p>
+<p><a href="https://buymeacoffee.com/bigian">Buy me a coffee</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Chapter%2020/" class="btn btn-neutral float-left" title="Chapter 20 - Git for Specific Use Cases"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Glossary/" class="btn btn-neutral float-right" title="Glossary">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Chapter%2020/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

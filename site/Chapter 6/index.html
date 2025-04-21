@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 6 - Undoing Changes - GIT From Beginner To Expert</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 6 - Undoing Changes";
+        var mkdocs_page_input_path = "Chapter 6.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> GIT From Beginner To Expert
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Contents</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%201/">Part 1 Getting Started with Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%201/">Chapter 1 -  Introduction to Version Control</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%202/">Chapter 2 - Installing and Configuring Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%203/">Chapter 3 - Your First Git Repository</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%202/">Part 2 - Core Git Concepts</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%204/">Chapter 4 - Understanding Commits and History</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%205/">Chapter 5 - Branching and Merging</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Chapter 6 - Undoing Changes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#undoing-changes-in-the-working-directory-git-checkout-">Undoing Changes in the Working Directory (git checkout -- )</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#undoing-changes-in-the-staging-area-git-reset-head">Undoing Changes in the Staging Area (git reset HEAD )</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#amending-commits-git-commit-amend">Amending Commits (git commit --amend)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reverting-commits-git-revert">Reverting Commits (git revert)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resetting-commits-git-reset">Resetting commits (git reset)</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%207/">Chapter 7 - Working with Remote Repositories</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%203/">Part 3 - Advanced Git Techniques</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%208/">Chapter 8 - Branching Strategies</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%209/">Chapter 9 - Rebasing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2010/">Chapter 10 - Tagging and Releases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2011/">Chapter 11 - Stashing and Patching</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2012/">Chapter 12 - Submodules and Subtrees</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%204/">Part 4 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2013/">Chapter 13 - Collaborative Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2014/">Chapter 14 - Git Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2015/">Chapter 15 - Git Internals</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2016/">Chapter 16 - Troubleshooting Git</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2017/">Chapter 17 - Git and Continuous Integration/Continuous Deployment (CI/CD)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Part%205/">Part 5 - Git for Collaboration and Advanced Topics</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2018/">Chapter 18 - Git Best Practices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2019/">Chapter 19 - Git and GUI Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Chapter%2020/">Chapter 20 - Git for Specific Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Appendix/">Appendix</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Glossary/">Glossary</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../AdditionalResources/">Additional Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">GIT From Beginner To Expert</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Chapter 6 - Undoing Changes</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="chapter-6-undoing-changes">Chapter 6: Undoing Changes</h2>
+<p>Mistakes are an inevitable part of development, and Git provides a robust set of tools for undoing changes and recovering from errors. This chapter will explore the various techniques for undoing changes in Git, allowing you to confidently experiment and correct mistakes without fear of losing your work. We'll cover how to undo changes in the working directory, the staging area, and even committed changes, ensuring you have the flexibility to manage your project's history effectively.</p>
+<p>We'll begin by examining how to undo changes in the working directory, reverting files to their last committed state. From there, we'll explore how to unstage changes in the staging area, allowing you to remove files from the next commit. We'll then delve into amending commits, reverting commits, and resetting commits, providing you with the tools to modify and rewrite your project's history. By the end of this chapter, you'll have a comprehensive understanding of how to undo changes in Git, empowering you to maintain a clean and accurate project history.</p>
+<h3 id="undoing-changes-in-the-working-directory-git-checkout-">Undoing Changes in the Working Directory (git checkout -- <file>)</h3>
+<p>The git checkout -- <file> command is used to discard changes made to a file in the working directory, reverting it to its last committed state. This command is useful when you've made modifications to a file that you want to undo, effectively restoring it to the version in the HEAD commit.</p>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li><strong>Reverts to Last Committed State:</strong> git checkout -- <file> overwrites the specified file in the working directory with the version from the HEAD commit.</li>
+<li><strong>Discards Unstaged Changes:</strong> This command only affects unstaged changes. Any changes that have been added to the staging area (using git add) will not be affected.</li>
+<li><strong>Irreversible:</strong> Once you run git checkout -- <file>, the changes in your working directory are permanently discarded. There is no way to recover them.</li>
+</ul>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Reverting a single file:</strong></li>
+</ul>
+<pre><code>git checkout -- filename.txt
+</code></pre>
+<p>Replace filename.txt with the name of the file you want to revert.</p>
+<ul>
+<li><strong>Reverting multiple files:</strong></li>
+</ul>
+<pre><code>git checkout -- file1.txt file2.txt file3.txt
+</code></pre>
+<p>You can revert multiple files by listing them separated by spaces.</p>
+<ul>
+<li><strong>Reverting all modified files in the working directory:</strong></li>
+</ul>
+<pre><code>git checkout -- .
+</code></pre>
+<p>This command reverts all modified files in the current directory and its subdirectories. Be cautious when using this command, as it will discard all unstaged changes.</p>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You modify a file named main.py in your working directory.</li>
+<li>You realize that you want to discard the changes and revert the file to its last committed state.</li>
+<li>You run git checkout -- main.py.</li>
+<li>The changes in main.py are discarded, and the file is reverted to the version in the HEAD commit.</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Unstaged Changes Only:</strong> git checkout -- <file> only affects unstaged changes. If you have already added changes to the staging area, you will need to unstage them using git reset HEAD <file> before using git checkout -- <file>.</li>
+<li><strong>Irreversibility:</strong> Be careful when using this command, as it permanently discards changes. Ensure that you have backed up any important changes before running git checkout -- <file>.</li>
+<li><strong>Working Directory vs. Staging Area:</strong> It is essential to distinguish between the working directory and the staging area. git checkout -- <file> only affects the working directory.</li>
+</ul>
+<p>By understanding how to use git checkout -- <file>, you can effectively discard unwanted changes in your working directory, ensuring that your codebase remains clean and accurate.</p>
+<h3 id="undoing-changes-in-the-staging-area-git-reset-head">Undoing Changes in the Staging Area (git reset HEAD <file>)</h3>
+<p>The git reset HEAD <file> command is used to remove files from the staging area (index), effectively unstaging them. This command is useful when you've added changes to the staging area that you no longer want to include in your next commit.</p>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li><strong>Unstages Files:</strong> git reset HEAD <file> removes the specified file from the staging area, but it does not modify the file in the working directory.</li>
+<li><strong>Preserves Working Directory Changes:</strong> The changes you made in the working directory are preserved.</li>
+<li><strong>Does Not Affect Commit History:</strong> This command only affects the staging area; it does not modify the commit history.</li>
+</ul>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Unstaging a single file:</strong></li>
+</ul>
+<pre><code>git reset HEAD filename.txt
+</code></pre>
+<p>Replace filename.txt with the name of the file you want to unstage.</p>
+<ul>
+<li><strong>Unstaging multiple files:</strong></li>
+</ul>
+<pre><code>git reset HEAD file1.txt file2.txt file3.txt
+</code></pre>
+<p>You can unstage multiple files by listing them separated by spaces.</p>
+<ul>
+<li><strong>Unstaging all files:</strong></li>
+</ul>
+<pre><code>git reset HEAD
+</code></pre>
+<p>This command unstages all files in the staging area.</p>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You modify a file named main.py and add it to the staging area using git add main.py.</li>
+<li>You realize that you don't want to include the changes in your next commit.</li>
+<li>You run git reset HEAD main.py.</li>
+<li>The file main.py is removed from the staging area, but your changes in the working directory are preserved.</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Staging Area Only:</strong> git reset HEAD <file> only affects the staging area. It does not modify the working directory or the commit history.</li>
+<li><strong>Working Directory Remains Unchanged:</strong> The changes you made in the working directory are preserved. If you want to discard those changes, you can use git checkout -- <file>.</li>
+<li><strong>No Commit History Modification:</strong> This command does not modify the commit history. If you want to undo committed changes, you'll need to use other commands like git revert or git reset --hard <commit>.</li>
+<li><strong>HEAD Pointer:</strong> HEAD is a pointer to the current branch's latest commit. git reset HEAD moves the staging area to match the HEAD commit without altering the working directory.</li>
+</ul>
+<p>By understanding how to use git reset HEAD <file>, you can effectively unstage changes, ensuring that your commits contain only the desired modifications.</p>
+<h3 id="amending-commits-git-commit-amend">Amending Commits (git commit --amend)</h3>
+<p><code>The git commit --amend</code> command is used to modify the most recent commit. This allows you to change the commit message, add or remove files, or modify the changes included in the last commit. Amending commits is useful for correcting mistakes or refining your commit history.</p>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li><strong>Modifies the Last Commit:</strong> <code>git commit --amend</code> replaces the last commit with a new commit that incorporates the changes you specify.</li>
+<li><strong>Updates the Commit Hash:</strong> Because the commit content and metadata change, the commit hash is also updated.</li>
+<li><strong>Staging Area and Working Directory:</strong> You can modify the staging area and working directory before running git commit --amend to include additional changes in the amended commit.</li>
+</ul>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Changing the commit message:</strong></li>
+</ul>
+<pre><code>git commit --amend
+</code></pre>
+<p>This command opens your default text editor, allowing you to edit the commit message.</p>
+<ul>
+<li><strong>Adding staged changes to the last commit:</strong></li>
+</ul>
+<pre><code>git add &lt;file(s)&gt;
+git commit --amend
+</code></pre>
+<p>This adds the specified files to the staging area and then amends the last commit to include those changes.</p>
+<ul>
+<li><strong>Modifying the last commit without changing the message:</strong></li>
+</ul>
+<pre><code>git commit --amend --no-edit
+</code></pre>
+<p>This command amends the last commit without opening the text editor, preserving the existing commit message.</p>
+<p><strong>Example Scenarios:</strong></p>
+<ol>
+<li>
+<p><strong>Correcting a typo in the commit message:</strong></p>
+</li>
+<li>
+<p>You make a commit with a typo in the commit message.</p>
+</li>
+<li>
+<p>You run <code>git commit --amend</code> and correct the typo in the editor.</p>
+</li>
+<li>
+<p><strong>Adding a forgotten file to the last commit:</strong></p>
+</li>
+<li>
+<p>You make a commit but forget to include a file.</p>
+</li>
+<li>You add the file to the staging area using git add <file>.</li>
+<li>
+<p>You run <code>git commit --amend</code> to include the file in the last commit.</p>
+</li>
+<li>
+<p><strong>Modifying the changes in the last commit:</strong></p>
+</li>
+<li>
+<p>You make a commit but realize that you made a mistake in the code.</p>
+</li>
+<li>You fix the mistake in the working directory and add the changes to the staging area.</li>
+<li>You run <code>git commit --amend</code> to update the last commit with the corrected changes.</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Last Commit Only:</strong> <code>git commit --amend</code> only modifies the most recent commit.</li>
+<li><strong>Do Not Amend Public Commits:</strong> Avoid amending commits that have already been pushed to a shared repository. This can cause issues for other developers who havebased their work on the original commit.  </li>
+<li><strong>Rewrites History:</strong> Amending commits rewrites the commit history, which can make it difficult to collaborate if others have based their work on the original commit.</li>
+<li><strong>Staging Area:</strong> The staging area is considered when amending. If you have any staged changes, they will be included in the amended commit.</li>
+<li><strong>No-Edit Option:</strong> the --no-edit option is very useful when you have already staged your changes, and do not need to change the commit message.</li>
+</ul>
+<p>By understanding how to use <code>git commit --amend</code>, you can effectively modify the last commit, ensuring that your commit history is clean and accurate.</p>
+<h3 id="reverting-commits-git-revert">Reverting Commits (git revert)</h3>
+<p>The <code>git revert</code> command is used to create a new commit that undoes the changes introduced by a specific commit.This command is useful when you want to undo changes without modifying the existing commit history. Git revert is a safe way to undo changes, especially in shared repositories, as it doesn't rewrite history.  </p>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li><strong>Creates a New Commit:</strong> <code>git revert</code> creates a new commit that reverses the changes made in the specified commit.</li>
+<li><strong>Preserves History:</strong> Unlike <code>git reset --hard</code>, <code>git revert</code> does not modify the existing commit history. It adds a new commit that explicitly undoes the changes.</li>
+<li><strong>Safe for Shared Repositories:</strong> Because it doesn't rewrite history, <code>git revert</code> is safe to use in shared repositories, as it doesn't cause issues for other developers.</li>
+</ul>
+<p><strong>Basic Usage:</strong></p>
+<ul>
+<li><strong>Reverting a specific commit:</strong></li>
+</ul>
+<pre><code>git revert &lt;commit-hash&gt;
+</code></pre>
+<p>Replace <commit-hash> with the SHA-1 hash of the commit you want to revert.</p>
+<ul>
+<li><strong>Reverting multiple commits:</strong></li>
+</ul>
+<pre><code>git revert &lt;commit-hash1&gt; &lt;commit-hash2&gt;
+</code></pre>
+<p>You can revert multiple commits by listing them separated by spaces.</p>
+<ul>
+<li><strong>Reverting a range of commits:</strong></li>
+</ul>
+<pre><code>git revert &lt;commit-hash1&gt;..&lt;commit-hash2&gt;
+</code></pre>
+<p>This reverts all commits in the specified range.</p>
+<ul>
+<li><strong>Skipping the editor:</strong></li>
+</ul>
+<pre><code>git revert --no-edit &lt;commit-hash&gt;
+</code></pre>
+<p>This will revert the commit and not open the editor for a commit message.</p>
+<p><strong>Example Scenario:</strong></p>
+<ol>
+<li>You make a commit that introduces a bug.</li>
+<li>You realize that you need to undo the changes made in that commit.</li>
+<li>You run git revert <commit-hash> to create a new commit that reverts the changes.</li>
+<li>Git opens your default text editor, allowing you to edit the revert commit message.</li>
+<li>You save the commit message and close the editor.</li>
+<li>Git creates a new commit that undoes the changes made in the specified commit.</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>New Commit:</strong> git revert creates a new commit. It does not modify the existing commit.</li>
+<li><strong>Safe for Shared Repositories:</strong> Because it doesn't rewrite history, git revert is safe to use in shared repositories.</li>
+<li><strong>Conflicts:</strong> If the changes introduced by the revert commit conflict with other changes, you'll need to resolve the conflicts manually.</li>
+<li><strong>Commit Message:</strong> The revert commit message typically includes a reference to the commit that was reverted.</li>
+<li><strong>Undo a Merge:</strong> git revert -m parent_number <merge_commit_hash>. You must specify the parent number of the merge you want to revert, as a merge commit has multiple parents.</li>
+</ul>
+<p>By understanding how to use git revert, you can effectively undo changes in your Git repository without rewriting history, ensuring that your project remains stable and collaborative.</p>
+<h3 id="resetting-commits-git-reset">Resetting commits (git reset)</h3>
+<p>The git reset command is used to move the current branch pointer to a specified commit. It can also be used to modify the staging area and working directory, depending on the options used. git reset is a powerful command that can be used to undo changes, but it can also be dangerous if used incorrectly, especially in shared repositories.</p>
+<p><strong>How it Works:</strong></p>
+<ul>
+<li><strong>Moves the Branch Pointer:</strong> git reset moves the current branch pointer (and HEAD) to the specified commit.</li>
+<li><strong>Modifies Staging Area and Working Directory (Optional):</strong> Depending on the options used, git reset can also modify the staging area and working directory.</li>
+<li><strong>Rewrites History:</strong> git reset rewrites the commit history, which can cause issues for other developers who have based their work on the original commits.</li>
+</ul>
+<p><strong>Basic Usage and Options:</strong></p>
+<pre><code>git reset --soft &lt;commit-hash&gt;:
+</code></pre>
+<ul>
+<li>Moves the branch pointer to the specified commit.</li>
+<li>Does not modify the staging area or working directory.</li>
+<li>Changes remain in the staging area and working directory.</li>
+</ul>
+<pre><code>git reset --mixed &lt;commit-hash&gt; (Default):
+</code></pre>
+<ul>
+<li>Moves the branch pointer to the specified commit.</li>
+<li>Resets the staging area to match the specified commit.</li>
+<li>Changes remain in the working directory.</li>
+</ul>
+<pre><code>git reset --hard &lt;commit-hash&gt;:
+</code></pre>
+<ul>
+<li>Moves the branch pointer to the specified commit.</li>
+<li>Resets the staging area and working directory to match the specified commit.</li>
+<li>Discards all changes in the working directory. <strong>Use with extreme caution!</strong></li>
+</ul>
+<p><strong>Example Scenarios:</strong></p>
+<ol>
+<li>
+<p><strong>Undoing the last commit (soft reset):</strong></p>
+</li>
+<li>
+<p>You make a commit but realize that you want to undo it without losing the changes.</p>
+</li>
+<li>You run <code>git reset --soft HEAD^</code> to move the branch pointer to the previous commit.</li>
+<li>
+<p>The changes remain in the staging area and working directory.</p>
+</li>
+<li>
+<p><strong>Undoing the last commit and unstaging the changes (mixed reset):</strong></p>
+</li>
+<li>
+<p>You make a commit but realize that you want to undo it and unstage the changes.</p>
+</li>
+<li>You run<code>git reset --mixed HEAD^</code> to move the branch pointer to the previous commit and reset the staging area.</li>
+<li>
+<p>The changes remain in the working directory but are unstaged.</p>
+</li>
+<li>
+<p><strong>Undoing the last commit and discarding the changes (hard reset):</strong></p>
+</li>
+<li>
+<p>You make a commit but realize that you want to undo it and completely discard the changes.</p>
+</li>
+<li>You run <code>git reset --hard HEAD^</code> to move the branch pointer to the previous commit and reset the staging area and working directory.</li>
+<li>
+<p><strong>All changes in the working directory are permanently discarded.</strong></p>
+</li>
+<li>
+<p><strong>Moving back multiple commits:</strong></p>
+</li>
+<li>
+<p><code>git reset --hard HEAD~3</code> moves the branch pointer back 3 commits and discard all changes.</p>
+</li>
+</ol>
+<p><strong>Important Considerations:</strong></p>
+<ul>
+<li><strong>Rewrites History:</strong> <code>git reset</code> rewrites the commit history, which can cause issues for other developers who have based their work on the original commits.</li>
+<li><strong>Hard Reset is Dangerous:</strong> <code>git reset --hard</code> permanently discards changes in the working directory. <strong>Use with extreme caution!</strong></li>
+<li><strong>Staging Area and Working Directory:</strong> The options used with git reset determine how the staging area and working directory are affected.</li>
+<li><strong>Shared Repositories:</strong> Avoid using <code>git reset</code> on commits that have already been pushed to a shared repository.</li>
+<li><strong>Reflog:</strong> If you accidentally discard changes with <code>git reset --hard</code>, you may be able to recover them using <code>git reflog</code>.</li>
+</ul>
+<p>By understanding how to use <code>git reset</code> and its various options, you can effectively undo changes in your Git repository. However, it's essential to use this command with caution, especially in shared repositories.</p>
+<p><a href="https://buymeacoffee.com/bigian">Buy me a coffee</a></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Chapter%205/" class="btn btn-neutral float-left" title="Chapter 5 - Branching and Merging"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Chapter%207/" class="btn btn-neutral float-right" title="Chapter 7 - Working with Remote Repositories">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Chapter%205/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Chapter%207/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
