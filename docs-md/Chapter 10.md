@@ -345,3 +345,6 @@ git push origin v1.0
 -   **Collaboration:** Tags enable effective collaboration by providing a shared understanding of release versions.
 
 By following these best practices, you can effectively use tags to manage your releases, ensuring that your project's history is well-documented and easily accessible.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

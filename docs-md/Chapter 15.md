@@ -248,3 +248,6 @@ Understanding the index is crucial because:
 -   It helps you understand the output of commands like git status and git diff.
 
 By mastering the index, you can use Git more effectively and create cleaner, more focused commits.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

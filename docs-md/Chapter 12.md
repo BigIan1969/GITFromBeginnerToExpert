@@ -281,3 +281,6 @@ Choosing between Git submodules and subtrees depends on your project's specific 
 -   Subtrees are better for integrating external projects into your main repository's history and modifying external code directly.
 
 By carefully considering these factors, you can choose the most appropriate technique for your project's needs.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

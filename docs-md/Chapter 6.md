@@ -274,3 +274,6 @@ git reset --hard <commit-hash>:
 -   **Reflog:** If you accidentally discard changes with `git reset --hard`, you may be able to recover them using `git reflog`.
 
 By understanding how to use `git reset` and its various options, you can effectively undo changes in your Git repository. However, it's essential to use this command with caution, especially in shared repositories.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

@@ -397,3 +397,6 @@ Then you can create a ~/.gitignore_global file with your global ignore patterns.
 -   **Useful resources:** There are many online resources and templates that can help you create .gitignore files for specific programming languages and frameworks.
 
 By using .gitignore files effectively, you can keep your Git repository clean and organized, ensuring that only relevant files are tracked.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

@@ -348,3 +348,6 @@ Selecting the right branching strategy is crucial for maintaining a healthy and 
 -   **Team Consensus:** Ensure that the entire team understands and agrees on the chosen strategy.
 
 By carefully considering these factors and recommendations, you can choose the branching strategy that best suits your project's needs and ensures a smooth and efficient development workflow.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

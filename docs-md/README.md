@@ -5,3 +5,5 @@ This comprehensive guide takes you on a journey from Git novice to expert, start
 
 
 License: [Creative Commons Attribution ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

@@ -343,3 +343,6 @@ git clone --filter=blob:none <repo-url>
 **Challenges Remain:**
 
 Even with optimizations, managing large monorepos with Git can be complex. Careful planning, tooling, and adherence to best practices are essential for success.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

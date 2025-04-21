@@ -82,3 +82,6 @@ This glossary defines key terms used in Git.
 -   **Working Directory:** The directory on your file system where you make changes to your files.
 
 This glossary should provide a helpful reference for understanding Git terminology.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

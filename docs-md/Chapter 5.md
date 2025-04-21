@@ -284,3 +284,6 @@ git checkout main
 git merge --no-ff feature
 ```
 By understanding the differences between fast forward and 3-way merges, you can effectively control the merge process and maintain a clear and organized commit history.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

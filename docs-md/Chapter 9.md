@@ -276,3 +276,6 @@ git rebase -i <base-branch>
 -   **Use Visual Git Tools:** Visual Git tools can help visualize the commit history and make it easier to recover from bad rebases.
 
 By understanding these recovery techniques and following the best practices, you can minimize the risk of data loss and effectively recover from bad rebases.
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

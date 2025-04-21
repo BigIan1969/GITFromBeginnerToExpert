@@ -332,3 +332,5 @@ exit 0
 
 By automating tasks with Git hooks, you can improve efficiency, enforce consistency, and streamline your development workflow.
 
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

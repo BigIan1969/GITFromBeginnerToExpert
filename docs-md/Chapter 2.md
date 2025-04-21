@@ -280,3 +280,5 @@ It is important to store your private SSH key securely. Never share your private
 
 By setting up SSH keys, you'll enjoy a more secure and efficient Git workflow, especially when working with remote repositories.
 
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

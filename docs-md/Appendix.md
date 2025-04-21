@@ -233,3 +233,6 @@ This appendix provides a concise reference for commonly used Git commands.
 
 Use the git help <command> command to get help on a specific command (e.g., git help commit).
 
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)

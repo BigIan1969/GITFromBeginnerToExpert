@@ -83,3 +83,6 @@ This appendix provides a curated list of resources to further expand your Git kn
 
 -   <https://pre-commit.com/>
 
+
+
+[Buy me a coffee](https://buymeacoffee.com/bigian)
