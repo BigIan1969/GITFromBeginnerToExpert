@@ -31,6 +31,8 @@ nav:
     - Glossary: Glossary.md  
     - Additional Resources: AdditionalResources.md
 theme: readthedocs
+docs_dir: docs-md
+site_dir: docs
 plugins:
     - search
     - glightbox
