@@ -364,4 +364,3 @@ Git's distributed nature facilitates collaboration, but effective teamwork requi
 By implementing these practices, teams can create a collaborative and efficient Git workflow that fosters productivity, innovation, and high-quality software.
 
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

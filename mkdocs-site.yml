@@ -30,7 +30,9 @@ nav:
     - Appendix: Appendix.md
     - Glossary: Glossary.md  
     - Additional Resources: AdditionalResources.md
-theme: readthedocs
+theme:
+  name: readthedocs
+  custom_dir: overrides
 docs_dir: docs-md
 site_dir: docs
 plugins:

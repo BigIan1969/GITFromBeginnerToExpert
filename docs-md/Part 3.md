@@ -6,4 +6,3 @@ With a solid understanding of basic Git operations and remote repository managem
 We will begin by examining various branching strategies, providing you with frameworks for managing parallel development and releases with clarity and efficiency. These strategies are essential for maintaining a stable codebase while accommodating feature development, bug fixes, and hotfixes. We will then proceed to more advanced techniques that allow you to refine your commit history and selectively apply changes. By mastering these advanced Git techniques, you will be able to navigate even the most challenging version control scenarios with confidence and precision.
 
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

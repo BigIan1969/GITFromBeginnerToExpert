@@ -276,4 +276,3 @@ git reset --hard <commit-hash>:
 By understanding how to use `git reset` and its various options, you can effectively undo changes in your Git repository. However, it's essential to use this command with caution, especially in shared repositories.
 
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

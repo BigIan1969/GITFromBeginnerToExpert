@@ -179,4 +179,3 @@ Code reviews are a critical component of modern software development workflows, 
 Code reviews are a valuable investment in code quality and team collaboration. By following these best practices, you can create a positive and productive code review process.
 
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

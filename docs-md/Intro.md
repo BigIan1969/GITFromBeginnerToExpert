@@ -11,4 +11,3 @@ Whether you're a solo coder, part of a sprawling development team, or simply see
 So, get ready to embark on a journey that will transform how you manage your projects and collaborate with others. Let's begin!
  
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

@@ -326,4 +326,3 @@ This will clone the repository into a directory named "my-project" instead of th
 `git clone` is the fundamental command for obtaining a local copy of a remote Git repository. It simplifies the process of getting started with existing projects and sets up the necessary connections for collaboration and sharing.
 
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

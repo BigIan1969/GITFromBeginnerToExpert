@@ -347,4 +347,3 @@ git push origin v1.0
 By following these best practices, you can effectively use tags to manage your releases, ensuring that your project's history is well-documented and easily accessible.
 
 
-<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>
