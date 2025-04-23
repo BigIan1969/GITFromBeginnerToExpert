@@ -237,4 +237,4 @@ GitOps is particularly well-suited for managing Kubernetes deployments due to Ku
 GitOps is a powerful approach to modern operations, leveraging Git to manage infrastructure and application deployments. It promotes automation, reliability, and security, enabling teams to deliver software faster and more effectively.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

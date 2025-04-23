@@ -399,4 +399,4 @@ Then you can create a ~/.gitignore_global file with your global ignore patterns.
 By using .gitignore files effectively, you can keep your Git repository clean and organized, ensuring that only relevant files are tracked.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

@@ -250,4 +250,4 @@ Understanding the index is crucial because:
 By mastering the index, you can use Git more effectively and create cleaner, more focused commits.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

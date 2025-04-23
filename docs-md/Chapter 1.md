@@ -176,4 +176,4 @@ Git's widespread adoption is a testament to its powerful features and numerous b
 In summary, Git provides a powerful and versatile toolset for managing your projects, offering numerous benefits that enhance collaboration, improve code management, and increase productivity. Its reliability and flexibility make it an indispensable tool for developers and teams across various industries.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

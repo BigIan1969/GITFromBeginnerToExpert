@@ -330,4 +330,4 @@ git apply patches/*.patch
 By understanding how to create and apply patches, you can effectively share and apply changes in Git, even in environments where Git repositories are not directly accessible.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

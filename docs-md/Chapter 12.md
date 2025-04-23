@@ -283,4 +283,4 @@ Choosing between Git submodules and subtrees depends on your project's specific 
 By carefully considering these factors, you can choose the most appropriate technique for your project's needs.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

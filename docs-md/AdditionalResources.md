@@ -85,4 +85,4 @@ This appendix provides a curated list of resources to further expand your Git kn
 
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

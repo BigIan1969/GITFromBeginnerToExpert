@@ -270,4 +270,4 @@ Commit hashes are fundamental to Git's architecture. They are unique identifiers
 By understanding commit hashes, you can effectively navigate and manipulate your Git repository, ensuring data integrity and maintaining a clear and organized history of your project.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

@@ -84,4 +84,4 @@ This glossary defines key terms used in Git.
 This glossary should provide a helpful reference for understanding Git terminology.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>

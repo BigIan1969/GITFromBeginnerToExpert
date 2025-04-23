@@ -278,4 +278,4 @@ git rebase -i <base-branch>
 By understanding these recovery techniques and following the best practices, you can minimize the risk of data loss and effectively recover from bad rebases.
 
 
-[Buy me a coffee](https://buymeacoffee.com/bigian)
+<a href="https://buymeacoffee.com/bigian" target="_blank">Buy me a coffee</a>
