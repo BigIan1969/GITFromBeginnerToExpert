@@ -30,18 +30,12 @@ nav:
     - Appendix: Appendix.md
     - Glossary: Glossary.md  
     - Additional Resources: AdditionalResources.md
-theme:
-  name: readthedocs
-  custom_dir: overrides
-exclude_docs:
-  toc.md
+theme: 
+  name: mkdocs
+  custom_dir: overrides_mkdocs
+
 docs_dir: docs-md
 site_dir: docs
-plugins:
-    - search
-    - glightbox
-    - mermaid2:
-        language: 'mermaid'
 markdown_extensions:
     - tables
 
