@@ -1,4 +1,3 @@
-![Book cover depicting source code being zipped up](https://github.com/user-attachments/assets/80af56db-2584-4255-bf78-57c1ad2f5556)
 <img src="https://github.com/user-attachments/assets/80af56db-2584-4255-bf78-57c1ad2f5556" alt="Book cover depicting source code being zipped up"/>
 # GIT From Beginner To Expert
 
